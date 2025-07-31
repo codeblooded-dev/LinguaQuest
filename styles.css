@@ -64,3 +64,22 @@ footer {
 footer p {
   margin: 0;
 }
+@media (max-width: 600px) {
+  .left-nav-bar {
+    width: 70px; /* Reduce width */
+    padding: 10px;
+  }
+
+  .left-nav-bar a {
+    font-size: 12px; /* Smaller text */
+    padding: 6px 0;
+  }
+
+  .logo {
+    font-size: 14px;
+  }
+
+  .main-content {
+    padding: 10px;
+  }
+}
