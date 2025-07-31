@@ -4,7 +4,7 @@
 }
 
 header {
-  background-color: #20c997; /* Green background */
+  background-color: #20c997;
   padding: 10px;
   text-align: center;
   font-size: 24px;
@@ -52,7 +52,7 @@ header {
   color: #2d2d2d;
 }
 footer {
-  background-color: #20c997; /* Green background */  /* Same as header */
+  background-color: #20c997; 
   color: white;
   text-align: center;
   padding: 12px;
