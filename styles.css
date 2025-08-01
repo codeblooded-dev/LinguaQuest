@@ -4,11 +4,17 @@
 }
 
 header {
-  background-color: #20c997;
+  background-color:#071a58 ; /* Green background */
   padding: 10px;
   text-align: center;
   font-size: 24px;
-  color: #a92f2f;
+  color:#35b926;
+  font-weight: bold;
+height: 80px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  position:static;
 }
 
 /* Flexbox layout */
@@ -20,12 +26,19 @@ header {
 /* Sidebar */
 .left-nav-bar {
   width: 220px;
-  background-color: #1b4332;
+  background-color: #040118;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  border-right: 3px solid #35b926; /* Green border */
+  height: 100%;
 }
-
+div .logo{
+  color:#35b926;
+  font-size: 30px;
+  font-weight: bold;
+}
 .left-nav-bar a {
   color: white;
   text-decoration: none;
@@ -37,49 +50,223 @@ header {
   background-color: #a92f2f;
 }
 
-.logo {
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+
 
 /* Main Content */
 .main-content {
   flex: 1;
   padding: 20px;
-  background-color: #f4fdf4;
-  color: #2d2d2d;
+  background-color: #09032d;
+  color: #f1eded;
 }
-footer {
-  background-color: #20c997; 
-  color: white;
-  text-align: center;
-  padding: 12px;
-  font-size: 14px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
+
+
 footer p {
   margin: 0;
 }
+
+
+/*Launguage Page CSS*/
+div.language-list {
+
+  text-align: leftss;
+  gap: 20px;
+  padding: 20px;
+}
+
+button {
+  background-color: #35b926; 
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  ;
+}
+
+/* from here */
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.hero h2 {
+  font-size: 28px;
+  color: #35b926;
+}
+.hero p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* CTA Button */
+.cta-btn {
+  background: #35b926;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 400px;
+  
+}
+.cta-btn:hover {
+  background: #2da01e;
+  transform: scale(1.05);
+}
+.big-btn {
+  padding: 14px 30px;
+  font-size: 20px;
+}
+
+
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.feature-card {
+  background: #1a0939;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  max-width: 250px;
+  transition: transform 0.3s ease;
+
+}
+.feature-card:hover {
+  transform: scale(1.05);
+}
+
+/* Language Grid */
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+.language-card {
+  background: #1a0939;
+  padding: 0px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.language-card:hover {
+  transform: scale(1.05);
+  background: #2d1655;
+}
+.language-card img {
+  width: 220px;
+  height: 100px;
+}
+.language-card h3 {
+  margin-top: 10px;
+  color: white;
+}
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #09032d;
+  color: #f1eded;
+  min-height: 100vh; /* ensures it covers full height */
+}
+
+.hero, .stats, .features, .language-grid, .fun-fact, .cta-final {
+  background: none; /* remove any unwanted white bg */
+}
+/* Phone resposive*/
 @media (max-width: 600px) {
+
+  /* Make container stack */
+  .container {
+    flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Sidebar becomes top navbar */
   .left-nav-bar {
-    width: 70px; /* Reduce width */
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
     padding: 10px;
+    border-right: none;
+    border-bottom: 3px solid #35b926;
   }
 
   .left-nav-bar a {
-    font-size: 12px; /* Smaller text */
-    padding: 6px 0;
+    font-size: 14px;
+    padding: 6px;
+  }
+/*no visibility*/
+  .logo {
+    display: none;
   }
 
-  .logo {
+  /* Main content fits full screen */
+  .main-content {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Hero section */
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero p {
     font-size: 14px;
   }
 
-  .main-content {
-    padding: 10px;
+  .cta-btn {
+    margin-left: 0;
+    margin-top: 10px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 250px;
+  }
+
+  /* Features stack */
+  .features {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .feature-card {
+    max-width: 90%;
+  }
+
+  /* Language grid fits screen */
+  .language-grid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+
+  .language-card img {
+    width: 100%;
+    height: auto;
   }
 }
+
