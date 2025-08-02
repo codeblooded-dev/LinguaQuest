@@ -20,7 +20,7 @@ height: 80px;
 /* Flexbox layout */
 .container {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
 
 /* Sidebar */
@@ -43,14 +43,15 @@ div .logo{
   color: white;
   text-decoration: none;
   padding: 10px 0;
-  font-size: 18px;
+  font-size: 18px;;
 }
 
 .left-nav-bar a:hover {
   background-color: #a92f2f;
+  padding: 10px 20px;
+  border-radius: 20px;
+
 }
-
-
 
 /* Main Content */
 .main-content {
@@ -58,11 +59,6 @@ div .logo{
   padding: 20px;
   background-color: #09032d;
   color: #f1eded;
-}
-
-
-footer p {
-  margin: 0;
 }
 
 
@@ -129,6 +125,11 @@ button {
 
 
 
+
+
+
+
+
 /* Features Section */
 .features {
   display: flex;
@@ -177,6 +178,10 @@ button {
   margin-top: 10px;
   color: white;
 }
+
+
+
+
 .main-content {
   flex: 1;
   padding: 20px;
@@ -188,7 +193,7 @@ button {
 .hero, .stats, .features, .language-grid, .fun-fact, .cta-final {
   background: none; /* remove any unwanted white bg */
 }
-/* Phone resposive*/
+
 @media (max-width: 600px) {
 
   /* Make container stack */
@@ -213,7 +218,7 @@ button {
     font-size: 14px;
     padding: 6px;
   }
-/*no visibility*/
+
   .logo {
     display: none;
   }
