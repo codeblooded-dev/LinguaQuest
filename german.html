@@ -104,7 +104,7 @@
     outline: 2px solid #2dfc62aa;
     letter-spacing: 0.04em;
     text-align: center;
-    display: inline-block;
+    display: block;
     min-width: 48px;
     transition: background 0.2s, color 0.2s; user-select: none;
   }
@@ -286,7 +286,7 @@ function renderQuestion() {
   quizArea.innerHTML = `
     <div class="stats">
       <div class="xp">XP: <span id="xp">${XP}</span></div>
-      <div class="hearts">❤ <span id="hearts">${hearts}</span></div>
+      <div class="hearts">❤️ <span id="hearts">${hearts}</span></div>
     </div>
     <div class="level-indicator">
       Level: <strong style="color:#33ff33;">${capitalize(currLevel)}</strong> • Question ${curr + 1} of ${total}
@@ -303,7 +303,7 @@ function renderQuestion() {
   const optionsContainer = document.getElementById('options-container');
   for (const key in qObj.options) {
     optionsContainer.insertAdjacentHTML('beforeend',
-      <label class="option"><input type="radio" name="answer" value="${key}"/> ${qObj.options[key]}</label>
+      `<label class="option"><input type="radio" name="answer" value="${key}"/> ${qObj.options[key]}</label>`
     );
   }
   document.querySelectorAll('input[type=radio]').forEach(input => {
@@ -326,10 +326,10 @@ function renderQuestion() {
     const xpGained = (selected.value === qObj.correct) ? Math.max(1, 11 - secondsTaken) : 0;
     if (selected.value === qObj.correct) {
       XP += xpGained;
-      showFeedback(true, +${xpGained} XP!);
+      showFeedback(true, `+${xpGained} XP!`);
     } else {
       hearts--;
-      showFeedback(false, Wrong! Correct: ${qObj.options[qObj.correct]});
+      showFeedback(false, `Wrong! Correct: ${qObj.options[qObj.correct]}`);
     }
     document.querySelectorAll('input[name=answer]').forEach(inp => inp.disabled = true);
     renderStats();
@@ -378,8 +378,8 @@ function nextQ() {
 }
 function showFeedback(correct, msg = "") {
   const feedback = document.getElementById('feedback');
-  feedback.className = feedback show ${correct ? "correct" : "incorrect"};
-  feedback.textContent = correct ? Correct! ${msg} : msg || "Wrong!";
+  feedback.className = `feedback show ${correct ? "correct" : "incorrect"}`;
+  feedback.textContent = correct ? `Correct! ${msg}` : msg || "Wrong!";
 }
 function resetFeedback() {
   const feedback = document.getElementById('feedback');
@@ -400,13 +400,13 @@ function quizEnd() {
   quizArea.innerHTML = `
     <div class="stats">
       <div class="xp">XP: ${XP}</div>
-      <div class="hearts">❤ ${hearts}</div>
+      <div class="hearts">❤️ ${hearts}</div>
     </div>
     <div class="result" style="margin-top:24px;">
       <p>Quiz complete!</p>
       <p>Level: <b style="color:#33bb33">${capitalize(currLevel)}</b></p>
       <p>Score: <span style="color:#2ee68b">${XP} XP</span></p>
-      <p>Hearts left: <span style="color:#db4747">❤ ${hearts}</span></p>
+      <p>Hearts left: <span style="color:#db4747">❤️ ${hearts}</span></p>
       <button onclick="showLevelMenu()" class="btn-next" style="margin-top:24px;">Try Another Level</button>
       <button onclick="beginQuiz('${currLevel}')" class="btn-next" style="background:#23215c;color:#32c276;margin-top:14px;">Try Again</button>
     </div>`;
