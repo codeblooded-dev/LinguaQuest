@@ -1,28 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8"/>
+<title>LinguaQuest — Learn German</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    margin:0; padding:0; min-height:100vh;
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #16132a;
+    background: url('german_flag.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+  }
+  .container {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 10px 32px rgba(0,0,0,0.33);
+    border-radius: 20px;
+    max-width: 470px;
+    width: 100%;
+    min-height: 84vh;
+    padding: 28px 20px 28px 20px;
+    margin: 3vh auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  header {
+    color: #232323;
+    background: linear-gradient(90deg, #232323 0%, #de2626 50%, #ffd700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.15rem;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: 0.04em;
+    margin-bottom: 30px;
+    user-select: none;
+  }
+  #level-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 300px;
+    margin: 0 auto 44px auto;
+  }
+  .level-btn {
+    width: 100%;
+    font-size: 1.32rem;
+    font-weight: 850;
+    border-radius: 44px;
+    padding: 22px 0 22px 0;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: filter 0.2s, box-shadow 0.2s, background 0.25s;
+    box-shadow: 0 4px 22px #3332;
+    letter-spacing:0.04em;
+    outline: none;
+  }
+  .level-btn[data-level="beginner"] {
+    background: linear-gradient(90deg, #232323 75%, #444 100%);
+    color: #ffd700; border: 3px solid #232323;
+  }
+  .level-btn[data-level="intermediate"] {
+    background: linear-gradient(90deg, #de2626 15%, #a00 100%);
+    color: #fffbe5; border: 3px solid #931b1b;
+  }
+  .level-btn[data-level="advanced"] {
+    background: linear-gradient(90deg, #ffd700 0%, #ffe05e 100%);
+    color: #232323; border: 3px solid #c7a200;
+  }
+  .level-btn:hover, .level-btn:focus {
+    filter: brightness(1.08) drop-shadow(0 0 10px #ffd50044);
+    box-shadow: 0 0 18px #ffd70044;
+    outline: 2px solid #23232366;
+  }
+  .level-btn.selected {
+    border-width: 5px;
+    outline: 3px solid #33ff3360;
+    filter: brightness(1.05) !important;
+    box-shadow: 0 0 18px #333;
+  }
+  .stats {
+    display: flex; justify-content: space-between; width:100%; margin-bottom: 14px;
+    font-weight: 600; font-size: 1.1rem; color: #237f23;
+  }
+  .xp { color: #27ae60; }
+  .hearts { color: #db4747; }
+  .level-indicator {
+    font-size: .97rem; color: #6ae4e4; margin-bottom: 16px; font-weight: 650; letter-spacing: 0.04em;
+  }
+  .timer {
+    font-family: 'Consolas', monospace;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 8px 18px;
+    background: #22185f; border-radius: 8px;
+    color: #33ff33; margin: 0 auto 20px auto;
+    outline: 2px solid #2dfc62aa;
+    letter-spacing: 0.04em;
+    text-align: center;
+    display: inline-block;
+    min-width: 48px;
+    transition: background 0.2s, color 0.2s; user-select: none;
+  }
+  .timer.warning { background: #c02828; color: #ffd700; }
+  .question {
+    font-size: 1.24rem; font-weight: 700; margin-bottom: 26px; text-align: center;
+    color: #272829ee; user-select: none;
+  }
+  .options {
+    display: flex; flex-direction: column; gap:14px; width:100%; margin-bottom: 12px;
+  }
+  label.option {
+    background: #efe7d6;
+    color: #212223;
+    padding: 14px 18px;
+    border-radius: 13px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    border: 3px solid transparent;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  label.option:hover, label.option.input-checked {
+    background: #32c276;
+    color: #050a10;
+    border-color: #ffd700;
+    box-shadow: 0 0 10px #faeb9877;
+  }
+  input[type="radio"] { display: none; }
+  .btn-next {
+    background: #ffd700;
+    color: #232323;
+    border: none;
+    border-radius: 24px;
+    font-weight: 800;
+    font-size: 1.13rem;
+    padding: 15px 36px;
+    margin: 24px auto 0 auto;
+    cursor: pointer;
+    box-shadow: 0 3px #23232336;
+    width: 90%;
+    transition: background 0.23s, color 0.2s, box-shadow 0.2s;
+    display: block; user-select: none;
+  }
+  .btn-next:disabled {
+    background: #ffeeb9; color: #b99d2f; cursor: not-allowed; box-shadow: none;
+  }
+  .btn-next:hover:not(:disabled) { background: #fae56d; }
+  .feedback {
+    margin-top: 16px; font-weight: 700; padding: 13px 0;
+    border-radius: 12px; text-align: center; opacity: 0; min-height: 40px;
+    transition: opacity 0.24s; color: white;
+  }
+  .feedback.show { opacity: 1; }
+  .feedback.correct { background: #55f059; color: #191; }
+  .feedback.incorrect { background: #de2626de; color: #ffe; }
+  .result {
+    margin-top: 36px; text-align: center; font-size: 1.18rem; font-weight: 700; color: #175517cc;
+  }
+  @media (max-width: 500px) {
+    .container { max-width: 97vw; padding: 15px 4vw 18px 4vw; }
+    header { font-size: 1.25rem; margin-bottom: 18px; }
+    #level-menu { width: 99%; gap: 17px; padding: 0; }
+    .btn-next { font-size: 1.04rem; }
+  }
+</style>
 </head>
 <body>
-    
-    <div class="container">
-    <!-- Left Sidebar -->
-    <div class="left-nav-bar">
-      <span class="logo">Learn Now</span><br><br><br>
-      <a href="index.html">Home</a><br><br><br>
-      <a href="launguage.html">Go Back</a><br><br><br>
+  <div class="container">
+    <header><br><br>Learn German with LinguaQuest!<br><br></header>
+    <section id="level-menu">
+      <button class="level-btn" data-level="beginner" type="button">Beginner</button>
+      <button class="level-btn" data-level="intermediate" type="button">Intermediate</button>
+      <button class="level-btn" data-level="advanced" type="button">Advanced</button>
+    </section>
+    <section id="quiz-area" aria-live="polite" style="width:100%;max-width:460px;"></section>
+  </div>
+<script>
+const quizData = {
+  beginner: [
+    { question: "What is the German word for 'house'?", options: { a: "Haus", b: "Hund", c: "Auto" }, correct: "a" },
+    { question: "How do you say 'thank you' in German?", options: { a: "Hallo", b: "Bitte", c: "Danke" }, correct: "c" },
+    { question: "Which German word means 'book'?", options: { a: "Stuhl", b: "Buch", c: "Tisch" }, correct: "b" },
+    { question: "What is the German word for 'apple'?", options: { a: "Apfel", b: "Brot", c: "Wasser" }, correct: "a" },
+    { question: "How do you say 'goodbye' in German?", options: { a: "Tschüss", b: "Ja", c: "Bitte" }, correct: "a" },
+    { question: "How do you say 'cat' in German?", options: { a: "Hund", b: "Katze", c: "Vogel" }, correct: "b" },
+    { question: "What is the German word for 'water'?", options: { a: "Milch", b: "Saft", c: "Wasser" }, correct: "c" },
+    { question: "How do you say 'car' in German?", options: { a: "Auto", b: "Zug", c: "Fahrrad" }, correct: "a" },
+    { question: "How do you say 'yes' in German?", options: { a: "Nein", b: "Ja", c: "Bitte" }, correct: "b" },
+    { question: "What is the German word for 'bread'?", options: { a: "Milch", b: "Brot", c: "Käse" }, correct: "b" },
+    { question: "How do you say 'dog' in German?", options: { a: "Hund", b: "Katze", c: "Vogel" }, correct: "a" },
+    { question: "What is the German word for 'mother'?", options: { a: "Mutter", b: "Vater", c: "Schwester" }, correct: "a" },
+    { question: "How do you say 'please' in German?", options: { a: "Danke", b: "Bitte", c: "Hallo" }, correct: "b" },
+    { question: "What is the German word for 'sun'?", options: { a: "Mond", b: "Sonne", c: "Stern" }, correct: "b" },
+    { question: "How do you say 'milk' in German?", options: { a: "Saft", b: "Wasser", c: "Milch" }, correct: "c" },
+    { question: "What is the German word for 'morning'?", options: { a: "Nachmittag", b: "Abend", c: "Morgen" }, correct: "c" },
+    { question: "What is the German word for 'school'?", options: { a: "Schule", b: "Haus", c: "Buch" }, correct: "a" },
+    { question: "What is the German word for 'chair'?", options: { a: "Tisch", b: "Stuhl", c: "Lampe" }, correct: "b" },
+    { question: "How do you say 'city' in German?", options: { a: "Dorf", b: "Stadt", c: "Land" }, correct: "b" },
+    { question: "What is the German for 'thank you very much'?", options: { a: "Bitte sehr", b: "Vielen Dank", c: "Auf Wiedersehen" }, correct: "b" }
+  ],
+  intermediate: [
+    { question: "What is the German word for 'window'?", options: { a: "Tür", b: "Fenster", c: "Lampe" }, correct: "b" },
+    { question: "How do you say 'school' in German?", options: { a: "Schule", b: "Zeugnis", c: "Stadt" }, correct: "a" },
+    { question: "Which German word means 'breakfast'?", options: { a: "Frühstück", b: "Abendessen", c: "Mittagessen" }, correct: "a" },
+    { question: "What is the German word for 'bicycle'?", options: { a: "Flugzeug", b: "Fahrrad", c: "Auto" }, correct: "b" },
+    { question: "How do you say 'beautiful' in German?", options: { a: "Klein", b: "Schön", c: "Langsam" }, correct: "b" },
+    { question: "What is 'hospital' in German?", options: { a: "Krankenhaus", b: "Bahnhof", c: "Fischmarkt" }, correct: "a" },
+    { question: "Which is the German word for 'library'?", options: { a: "Bibliothek", b: "Klassenzimmer", c: "Küche" }, correct: "a" },
+    { question: "What is the German word for 'teacher'?", options: { a: "Lehrer", b: "Schüler", c: "Arzt" }, correct: "a" },
+    { question: "How do you say 'to read' in German?", options: { a: "lesen", b: "schreiben", c: "sprechen" }, correct: "a" },
+    { question: "Which word means 'garden' in German?", options: { a: "Garten", b: "Park", c: "Wald" }, correct: "a" },
+    { question: "What is 'train station' in German?", options: { a: "Flughafen", b: "Bahnhof", c: "Markt" }, correct: "b" },
+    { question: "How do you say 'cold' in German?", options: { a: "Warm", b: "Heiß", c: "Kalt" }, correct: "c" },
+    { question: "Which is the German word for 'coffee'?", options: { a: "Tee", b: "Kaffee", c: "Wasser" }, correct: "b" },
+    { question: "What is the German word for 'money'?", options: { a: "Geld", b: "Preis", c: "Kauf" }, correct: "a" },
+    { question: "How do you say 'to write' in German?", options: { a: "schreiben", b: "lesen", c: "singen" }, correct: "a" },
+    { question: "What is 'street' in German?", options: { a: "Straße", b: "Platz", c: "Weg" }, correct: "a" },
+    { question: "Which word means 'friend' in German?", options: { a: "Freund", b: "Feind", c: "Nachbar" }, correct: "a" },
+    { question: "How do you say 'family' in German?", options: { a: "Familie", b: "Freunde", c: "Leute" }, correct: "a" },
+    { question: "What is the German word for 'city center'?", options: { a: "Vorort", b: "Stadtzentrum", c: "Dorf" }, correct: "b" },
+    { question: "How do you say 'to speak' in German?", options: { a: "hören", b: "sprechen", c: "sehen" }, correct: "b" }
+  ],
+  advanced: [
+    { question: "What does 'Verantwortung' mean?", options: { a: "Responsibility", b: "Opportunity", c: "Experience" }, correct: "a" },
+    { question: "How do you say 'nevertheless' in German?", options: { a: "dennoch", b: "gleichzeitig", c: "sodass" }, correct: "a" },
+    { question: "What is the German word for 'achievement'?", options: { a: "Leistung", b: "Misserfolg", c: "Fehler" }, correct: "a" },
+    { question: "What is the German word for 'environment'?", options: { a: "Umwelt", b: "Gesellschaft", c: "Wirtschaft" }, correct: "a" },
+    { question: "What does 'die Enttäuschung' mean?", options: { a: "Disappointment", b: "Encouragement", c: "Entertainment" }, correct: "a" },
+    { question: "How do you say 'to depend on' in German?", options: { a: "abhängen von", b: "aufhören", c: "anfangen" }, correct: "a" },
+    { question: "Which word means 'opinion' in German?", options: { a: "Meinung", b: "Frage", c: "Antwort" }, correct: "a" },
+    { question: "How do you say 'complex' in German?", options: { a: "komplex", b: "einfach", c: "klar" }, correct: "a" },
+    { question: "What is 'solution' in German?", options: { a: "Lösung", b: "Problem", c: "Frage" }, correct: "a" },
+    { question: "How do you say 'knowledge' in German?", options: { a: "Wissen", b: "Weisheit", c: "Verstand" }, correct: "a" },
+    { question: "Which word means 'development' in German?", options: { a: "Entwicklung", b: "Veränderung", c: "Stagnation" }, correct: "a" },
+    { question: "What does 'die Verhandlung' mean?", options: { a: "Negotiation", b: "Delay", c: "Agreement" }, correct: "a" },
+    { question: "How do you say 'to avoid' in German?", options: { a: "vermeiden", b: "erreichen", c: "beginnen" }, correct: "a" },
+    { question: "What does 'das Urteil' mean?", options: { a: "Judgment", b: "Announcement", c: "Complaint" }, correct: "a" },
+    { question: "How do you say 'growth' in German?", options: { a: "Wachstum", b: "Abnahme", c: "Rückgang" }, correct: "a" },
+    { question: "What is 'consideration' in German?", options: { a: "Rücksicht", b: "Nachsicht", c: "Freundlichkeit" }, correct: "a" },
+    { question: "What does 'die Herausforderung' mean?", options: { a: "Challenge", b: "Solution", c: "Result" }, correct: "a" },
+    { question: "How do you say 'to analyze' in German?", options: { a: "analysieren", b: "übernehmen", c: "vergleichen" }, correct: "a" },
+    { question: "Which word means 'achievement' in German?", options: { a: "Leistung", b: "Fehler", c: "Misserfolg" }, correct: "a" },
+    { question: "How do you say 'growth' in German?", options: { a: "Wachstum", b: "Schrumpfung", c: "Abnahme" }, correct: "a" }
+  ]
+};
 
-      <a href="lingua_quest.html">Quests</a><br><br><br>
-      <a href="lingua_achievements.html">Achievements</a><br><br><br>
-      <a href="lingua_leaderboard.html">Leaderboard</a><br><br><br>
+let currLevel = null, curr = 0, XP = 0, hearts = 3, timer = null, timeLeft = 10, answered = false;
+
+function showLevelMenu() {
+  document.getElementById('quiz-area').innerHTML = "";
+  document.getElementById('level-menu').style.display = "";
+  document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('selected'));
+  currLevel = null; curr = 0; XP = 0; hearts = 3;
+}
+
+function beginQuiz(level) {
+  currLevel = level;
+  curr = 0;
+  XP = 0;
+  hearts = 3;
+  document.getElementById('level-menu').style.display = "none";
+  renderQuestion();
+}
+
+document.querySelectorAll('.level-btn').forEach(btn => btn.onclick = function() {
+  document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  beginQuiz(btn.getAttribute('data-level'));
+});
+
+function renderQuestion() {
+  answered = false;
+  clearInterval(timer);
+  const qArr = quizData[currLevel];
+  const total = qArr.length;
+  const qObj = qArr[curr];
+  const quizArea = document.getElementById('quiz-area');
+  quizArea.innerHTML = `
+    <div class="stats">
+      <div class="xp">XP: <span id="xp">${XP}</span></div>
+      <div class="hearts">❤ <span id="hearts">${hearts}</span></div>
     </div>
-
-    <div class="main-content">
-      <!--THE CONTENT FOR GERMAN PAGE TO BE ADDED HERE-->
-
-       
+    <div class="level-indicator">
+      Level: <strong style="color:#33ff33;">${capitalize(currLevel)}</strong> • Question ${curr + 1} of ${total}
     </div>
+    <div id="timer" class="timer">10</div>
+    <form id="quiz-form">
+      <div class="question" id="question-container">${qObj.question}</div>
+      <div class="options" id="options-container"></div>
+      <button type="submit" class="btn-next" id="next-btn" disabled>Next</button>
+    </form>
+    <div class="feedback" id="feedback"></div>
+    <div class="result" id="result"></div>
+  `;
+  const optionsContainer = document.getElementById('options-container');
+  for (const key in qObj.options) {
+    optionsContainer.insertAdjacentHTML('beforeend',
+      <label class="option"><input type="radio" name="answer" value="${key}"/> ${qObj.options[key]}</label>
+    );
+  }
+  document.querySelectorAll('input[type=radio]').forEach(input => {
+    input.addEventListener('change', () => {
+      document.getElementById('next-btn').disabled = false;
+      document.querySelectorAll('.option').forEach(l => l.classList.remove('input-checked'));
+      input.parentNode.classList.add('input-checked');
+      if (!answered) resetFeedback();
+    });
+  });
+  startTimer();
+  document.getElementById('quiz-form').onsubmit = function(e) {
+    e.preventDefault();
+    if (answered) return nextQ();
+    clearInterval(timer);
+    const selected = document.querySelector('input[name=answer]:checked');
+    if (!selected) return;
+    answered = true;
+    const secondsTaken = 10 - timeLeft;
+    const xpGained = (selected.value === qObj.correct) ? Math.max(1, 11 - secondsTaken) : 0;
+    if (selected.value === qObj.correct) {
+      XP += xpGained;
+      showFeedback(true, +${xpGained} XP!);
+    } else {
+      hearts--;
+      showFeedback(false, Wrong! Correct: ${qObj.options[qObj.correct]});
+    }
+    document.querySelectorAll('input[name=answer]').forEach(inp => inp.disabled = true);
+    renderStats();
+    setTimeout(nextQ, 1500);
+  };
+}
+
+function startTimer() {
+  timeLeft = 10; updateTimer(true);
+  clearInterval(timer);
+  timer = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      if (!answered) autoWrong();
+    }
+  }, 1000);
+}
+function updateTimer(resetStyle = false) {
+  const timerEl = document.getElementById('timer');
+  if (!timerEl) return;
+  timerEl.textContent = timeLeft;
+  if (timeLeft <= 3) {
+    timerEl.classList.add("warning");
+  } else if (resetStyle) {
+    timerEl.classList.remove("warning");
+  }
+}
+function autoWrong() {
+  answered = true;
+  hearts--;
+  showFeedback(false, "⏰ Time's up!");
+  document.getElementById('next-btn').disabled = false;
+  document.querySelectorAll('input[type=radio]').forEach(inp => inp.disabled = true);
+  renderStats();
+  setTimeout(nextQ, 1500);
+}
+function nextQ() {
+  const qArr = quizData[currLevel];
+  if (++curr >= qArr.length || hearts === 0) {
+    quizEnd();
+  } else {
+    renderQuestion();
+  }
+}
+function showFeedback(correct, msg = "") {
+  const feedback = document.getElementById('feedback');
+  feedback.className = feedback show ${correct ? "correct" : "incorrect"};
+  feedback.textContent = correct ? Correct! ${msg} : msg || "Wrong!";
+}
+function resetFeedback() {
+  const feedback = document.getElementById('feedback');
+  if (feedback) {
+    feedback.className = "feedback";
+    feedback.textContent = "";
+  }
+}
+function renderStats() {
+  const x = document.getElementById('xp');
+  const h = document.getElementById('hearts');
+  if (x) x.textContent = XP;
+  if (h) h.textContent = hearts;
+}
+function quizEnd() {
+  clearInterval(timer);
+  const quizArea = document.getElementById('quiz-area');
+  quizArea.innerHTML = `
+    <div class="stats">
+      <div class="xp">XP: ${XP}</div>
+      <div class="hearts">❤ ${hearts}</div>
+    </div>
+    <div class="result" style="margin-top:24px;">
+      <p>Quiz complete!</p>
+      <p>Level: <b style="color:#33bb33">${capitalize(currLevel)}</b></p>
+      <p>Score: <span style="color:#2ee68b">${XP} XP</span></p>
+      <p>Hearts left: <span style="color:#db4747">❤ ${hearts}</span></p>
+      <button onclick="showLevelMenu()" class="btn-next" style="margin-top:24px;">Try Another Level</button>
+      <button onclick="beginQuiz('${currLevel}')" class="btn-next" style="background:#23215c;color:#32c276;margin-top:14px;">Try Again</button>
+    </div>`;
+}
+function capitalize(x) {
+  return x.charAt(0).toUpperCase() + x.slice(1);
+}
+showLevelMenu();
+</script>
 </body>
 </html>
