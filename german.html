@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<title>LinguaQuest — Learn German</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    margin:0; padding:0; min-height:100vh;
-    font-family: 'Montserrat', Arial, sans-serif;
-    color: #16132a;
-    background: url('german_flag.jpg') no-repeat center center fixed;
-    background-size: cover;
-    background-attachment: fixed;
-    position: relative;
-  }
-  .container {
-    background: rgba(255,255,255,0.95);
-    box-shadow: 0 10px 32px rgba(0,0,0,0.33);
-    border-radius: 20px;
-    max-width: 470px;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+   <style>
+ .container1 {
+    max-width: 500px;
     width: 100%;
-    min-height: 84vh;
     padding: 28px 20px 28px 20px;
-    margin: 3vh auto 0 auto;
+    margin: 3vh 270px 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
   }
-  header {
-    color: #232323;
-    background: linear-gradient(90deg, #232323 0%, #de2626 50%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 2.15rem;
-    font-weight: 900;
+  .top {
+   
     text-align: center;
-    letter-spacing: 0.04em;
-    margin-bottom: 30px;
-    user-select: none;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
   }
+  .left-nav-bar {
+  
+    padding: 20px;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
   #level-menu {
     display: flex;
     flex-direction: column;
@@ -57,7 +50,7 @@
     border: none;
     cursor: pointer;
     margin: 0 auto;
-    transition: filter 0.2s, box-shadow 0.2s, background 0.25s;
+    transition: filter 0.2s, box-shadow 0.2s;
     box-shadow: 0 4px 22px #3332;
     letter-spacing:0.04em;
     outline: none;
@@ -85,7 +78,8 @@
     filter: brightness(1.05) !important;
     box-shadow: 0 0 18px #333;
   }
-  .stats {
+
+    .stats {
     display: flex; justify-content: space-between; width:100%; margin-bottom: 14px;
     font-weight: 600; font-size: 1.1rem; color: #237f23;
   }
@@ -111,7 +105,7 @@
   .timer.warning { background: #c02828; color: #ffd700; }
   .question {
     font-size: 1.24rem; font-weight: 700; margin-bottom: 26px; text-align: center;
-    color: #272829ee; user-select: none;
+    color: #ffffffee; user-select: none;
   }
   .options {
     display: flex; flex-direction: column; gap:14px; width:100%; margin-bottom: 12px;
@@ -165,16 +159,38 @@
     margin-top: 36px; text-align: center; font-size: 1.18rem; font-weight: 700; color: #175517cc;
   }
   @media (max-width: 500px) {
-    .container { max-width: 97vw; padding: 15px 4vw 18px 4vw; }
+    .container1 { max-width: 97vw; padding: 15px 4vw 18px 4vw; }
     header { font-size: 1.25rem; margin-bottom: 18px; }
     #level-menu { width: 99%; gap: 17px; padding: 0; }
     .btn-next { font-size: 1.04rem; }
+    .left-nav-bar {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-right: none;
+    border-bottom: 3px solid #35b926;
   }
-</style>
+  }
+   </style>
 </head>
 <body>
-  <div class="container">
-    <header><br><br>Learn German with LinguaQuest!<br><br></header>
+    
+    <div class="container">
+    <!-- Left Sidebar -->
+    <div class="left-nav-bar">
+      <span class="logo">Learn Now</span><br><br><br>
+      <a href="index.html">Home</a><br><br><br>
+      <a href="launguage.html">Go Back</a><br><br><br>
+      <a href="lingua_quest.html">Quests</a><br><br><br>
+      <a href="lingua_achievements.html">Achievements</a><br><br><br>
+      <a href="lingua_leaderboard.html">Leaderboard</a><br><br><br>
+    </div>
+
+    <div class="main-content">
+      <h1 class="top"><br><br>Learn German with LinguaQuest!</h1><br><br>
+      <div class="container1">
     <section id="level-menu">
       <button class="level-btn" data-level="beginner" type="button">Beginner</button>
       <button class="level-btn" data-level="intermediate" type="button">Intermediate</button>
@@ -182,7 +198,7 @@
     </section>
     <section id="quiz-area" aria-live="polite" style="width:100%;max-width:460px;"></section>
   </div>
-<script>
+  <script>
 const quizData = {
   beginner: [
     { question: "What is the German word for 'house'?", options: { a: "Haus", b: "Hund", c: "Auto" }, correct: "a" },
@@ -416,5 +432,10 @@ function capitalize(x) {
 }
 showLevelMenu();
 </script>
+
+</body>
+        
+       
+</div>
 </body>
 </html>
