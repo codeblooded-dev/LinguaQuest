@@ -279,3 +279,9 @@ button {
 /*styles for french*/
 /*styles for english*/
 /*styles for spanish*/
+.level-btn {
+  background-size: cover;         
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
