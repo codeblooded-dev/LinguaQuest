@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: relative; 
   }
   .top {
    
@@ -56,16 +56,23 @@
     outline: none;
   }
   .level-btn[data-level="beginner"] {
-    background: linear-gradient(90deg, #232323 75%, #444 100%);
+    background-image: url('/images/german-top.png');
     color: #ffd700; border: 3px solid #232323;
   }
   .level-btn[data-level="intermediate"] {
-    background: linear-gradient(90deg, #de2626 15%, #a00 100%);
+    background-image: url('/images/mid.png');
     color: #fffbe5; border: 3px solid #931b1b;
   }
   .level-btn[data-level="advanced"] {
-    background: linear-gradient(90deg, #ffd700 0%, #ffe05e 100%);
+    background-image: url('/images/german-bot.png');
     color: #232323; border: 3px solid #c7a200;
+  }
+  .top {
+   
+    margin-left: 455px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
   }
   .level-btn:hover, .level-btn:focus {
     filter: brightness(1.08) drop-shadow(0 0 10px #ffd50044);
@@ -183,7 +190,7 @@
       <span class="logo">Learn Now</span><br><br><br>
       <a href="index.html">Home</a><br><br><br>
       <a href="launguage.html">Go Back</a><br><br><br>
-      <a href="lingua_quest.html">Quests</a><br><br><br>
+      <a href="lingua_gstudy.html">Study Materials</a><br><br><br>
       <a href="lingua_achievements.html">Achievements</a><br><br><br>
       <a href="lingua_leaderboard.html">Leaderboard</a><br><br><br>
     </div>
