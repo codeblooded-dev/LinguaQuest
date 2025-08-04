@@ -15,9 +15,9 @@
     align-items: center;
     position: relative; 
   }
-  .top {
+.top {
    
-    text-align: center;
+    margin-left: 455px;
     font-weight: bold;
     color: #fff;
     margin-bottom: 20px;
@@ -56,16 +56,16 @@
     outline: none;
   }
   .level-btn[data-level="beginner"] {
-    background: linear-gradient(90deg, #232323 75%, #444 100%);
-    color: #ffd700; border: 3px solid #232323;
+    background-image: url('/images/fr-top.png');
+    color: #000000  ; border: 3px solid #232323;
   }
   .level-btn[data-level="intermediate"] {
-    background: linear-gradient(90deg, #de2626 15%, #a00 100%);
-    color: #fffbe5; border: 3px solid #931b1b;
+   background-image: url('/images/fr-mid.png');
+    color: #010101; border: 3px solid #931b1b;
   }
   .level-btn[data-level="advanced"] {
-    background: linear-gradient(90deg, #ffd700 0%, #ffe05e 100%);
-    color: #232323; border: 3px solid #c7a200;
+   background-image: url('/images/fr-bot.png');
+    color: #000000; border: 3px solid #c7a200;
   }
   .level-btn:hover, .level-btn:focus {
     filter: brightness(1.08) drop-shadow(0 0 10px #ffd50044);
@@ -189,7 +189,7 @@
     </div>
 
     <div class="main-content">
-      <h1 class="top"><br><br>Learn French with LinguaQuest!</h1><br><br>
+      <h1 class="top"><br><br>Solve French Quiz with LinguaQuest!</h1><br><br>
       <div class="container1">
     <section id="level-menu">
       <button class="level-btn" data-level="beginner" type="button">Beginner</button>
@@ -203,11 +203,11 @@ const quizData = {
   beginner: [
     { question: "What is the French word for 'apple'?", options: { a: "Pomme", b: "Banane", c: "Orange" }, correct: "a" },
     { question: "How do you say 'thank you' in French?", options: { a: "Bonjour", b: "Merci", c: "Salut" }, correct: "b" },
-    { question: "What is the French word for 'bread'?", options: { a: "Pain", b: "Fromage", c: "Lait" }, correct: "a" },
+    { question: "Which French word means 'bread'?", options: { a: "Pain", b: "Fromage", c: "Lait" }, correct: "a" },
     { question: "How do you say 'yes' in French?", options: { a: "Non", b: "Oui", c: "Salut" }, correct: "b" },
     { question: "What is the French word for 'water'?", options: { a: "Eau", b: "Vin", c: "Jus" }, correct: "a" },
     { question: "How do you say 'goodbye' in French?", options: { a: "Bonjour", b: "Au revoir", c: "Merci" }, correct: "b" },
-    { question: "What is the French word for 'milk'?", options: { a: "Lait", b: "Sucre", c: "Café" }, correct: "a" },
+    { question: "Which French word means 'milk'?", options: { a: "Lait", b: "Sucre", c: "Café" }, correct: "a" },
     { question: "How do you say 'cat' in French?", options: { a: "Chien", b: "Chat", c: "Oiseau" }, correct: "b" },
     { question: "What is the French word for 'house'?", options: { a: "Maison", b: "École", c: "Voiture" }, correct: "a" },
     { question: "How do you say 'please' in French?", options: { a: "S'il vous plaît", b: "Merci", c: "Salut" }, correct: "a" }
@@ -239,6 +239,7 @@ const quizData = {
     { question: "What does 'analyse' mean?", options: { a: "Analysis", b: "Decision", c: "Action" }, correct: "a" }
   ]
 };
+
 
 
 let currLevel = null, curr = 0, XP = 0, hearts = 3, timer = null, timeLeft = 10, answered = false;
@@ -412,4 +413,3 @@ showLevelMenu();
 </div>
 </body>
 </html>
-
