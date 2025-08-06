@@ -1,10 +1,15 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #09032d; 
+}
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 header {
-  background-color:#071a58 ; /* Green background */
+  background-color:#071a58 ; 
   padding: 10px;
   text-align: center;
   font-size: 24px;
@@ -20,7 +25,7 @@ height: 80px;
 /* Flexbox layout */
 .container {
   display: flex;
-  height: 100%;
+  min-height: 100vh;
 }
 
 /* Sidebar */
@@ -31,8 +36,8 @@ height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-right: 3px solid #35b926; /* Green border */
-  height: 100%;
+  border-right: 3px solid #35b926;
+  height: 100vh;
 }
 div .logo{
   color:#35b926;
@@ -123,13 +128,6 @@ button {
   font-size: 20px;
 }
 
-
-
-
-
-
-
-
 /* Features Section */
 .features {
   display: flex;
@@ -178,9 +176,6 @@ button {
   margin-top: 10px;
   color: white;
 }
-
-
-
 
 .main-content {
   flex: 1;
@@ -274,11 +269,6 @@ button {
     height: auto;
   }
 }
-
-/*styles for german{}*/
-/*styles for french*/
-/*styles for english*/
-/*styles for spanish*/
 .level-btn {
   background-size: cover;         
   background-repeat: no-repeat;
