@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>German Learning Hub</title>
+      <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgb(39, 89, 42);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .section {
+            background: rgb(13, 206, 90);
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #344e33, #a7b8a5);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section-content {
+            padding: 30px;
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .greeting-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .greeting-card {
+            background: #174dcc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .greeting-card:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .greeting-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: #667eea;
+        }
+
+        .greeting-card:hover h3 {
+            color: white;
+        }
+
+        .greeting-card .german {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .greeting-card .english {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .intro-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .intro-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            color: #333;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .intro-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .intro-card .example {
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .intro-card .german-text {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .intro-card .english-text {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .words-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .word-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .word-card:hover {
+            border-color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .word-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .word-card h3 {
+            font-size: 1.3rem;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .word-card .english-meaning {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .pronunciation {
+            background: #f0f4ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 3px solid #667eea;
+            font-size: 0.85rem;
+        }
+
+        .play-btn {
+            background: #e00f58;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background: #0d2ed4;
+        }
+
+        .instruction-note {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left Sidebar -->
+  
+    <div class="left-nav-bar">
+     
+      <span class="logo">Learn Now</span><br><br><br>
+      <a href="index.html">Home</a><br><br><br>
+      <a href="launguage.html">Launguage</a><br><br><br>
+
+      <a href="lingua_quest.html">Quests</a><br><br><br>
+      <a href="lingua_achievements.html">Achievements</a><br><br><br>
+      <a href="lingua_leaderboard.html">Leaderboard</a><br><br><br>
+    </div>
+
+  <div class="main-content">
+        <div class="header">
+            <h1>German </h1>
+            <p>Learn German step by step with interactive lessons and pronunciation</p>
+        </div>
+
+        <!-- Greetings Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('greetings')">
+                <h2>👋 German Greetings & Salutations</h2>
+                <span class="toggle-icon" id="greetings-icon">▼</span>
+            </div>
+            <div class="section-content" id="greetings-content">
+                <div class="instruction-note">
+                    <strong>Instructions:</strong> Click the play buttons to hear German pronunciation. Practice saying each greeting out loud!
+                </div>
+                <div class="greeting-grid">
+                    <div class="greeting-card">
+                        <h3>Basic Greeting</h3>
+                        <div class="german">Hallo</div>
+                        <div class="english">Hello / Hi</div>
+                        <div class="pronunciation">
+                            <strong>Pronunciation:</strong> /HAH-loh/
+                            <button class="play-btn" onclick="speakGerman('Hallo')">🔊 Play</button>
+                        </div>
+                    </div>
+                    <div class="greeting-card">
+                        <h3>Good Morning</h3>
+                        <div class="german">Guten Morgen</div>
+                        <div class="english">Good morning</div>
+                        <div class="pronunciation">
+                            <strong>Pronunciation:</strong> /GOO-ten MOR-gen/
+                            <button class="play-btn" onclick="speakGerman('Guten Morgen')">🔊 Play</button>
+                        </div>
+                    </div>
+                    <div class="greeting-card">
+                        <h3>Good Day</h3>
+                        <div class="german">Guten Tag</div>
+                        <div class="english">Good day / Hello</div>
+                        <div class="pronunciation">
+                            <strong>Pronunciation:</strong> /GOO-ten TAHK/
+                            <button class="play-btn" onclick="speakGerman('Guten Tag')">🔊 Play</button>
+                        </div>
+                    </div>
+                    <div class="greeting-card">
+                        <h3>Good Evening</h3>
+                        <div class="german">Guten Abend</div>
+                        <div class="english">Good evening</div>
+                        <div class="pronunciation">
+                            <strong>Pronunciation:</strong> /GOO-ten AH-bent/
+                            <button class="play-btn" onclick="speakGerman('Guten Abend')">🔊 Play</button>
+                        </div>
+                    </div>
+                    <div class="greeting-card">
+                        <h3>How are you?</h3>
+                        <div class="german">Wie geht es Ihnen?</div>
+                        <div class="english">How are you? (formal)</div>
+                        <div class="pronunciation">
+                            <strong>Pronunciation:</strong> /vee gayt es EE-nen/
+                            <button class="play-btn" onclick="speakGerman('Wie geht es Ihnen?')">🔊 Play</button>
+                        </div>
+                    </div>
+                    <div class="greeting-card">
+                        <h3>Nice to meet you</h3>
+                        <div class="german">Freut mich</div>
+                        <div class="english">Nice to meet you</div>
+                        <div class="pronunciation">
+                            <strong>Pronunciation:</strong> /froyt mikh/
+                            <button class="play-btn" onclick="speakGerman('Freut mich')">🔊 Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Introductions Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('introductions')">
+                <h2>🤝 German Introductions</h2>
+                <span class="toggle-icon" id="introductions-icon">▼</span>
+            </div>
+            <div class="section-content" id="introductions-content">
+                <div class="instruction-note">
+                    <strong>Instructions:</strong> Learn common German introduction phrases. Each example shows German first, then English translation.
+                </div>
+                <div class="intro-examples">
+                    <div class="intro-card">
+                        <h3>Introducing Yourself</h3>
+                        <div class="example">
+                            <div class="german-text">Ich heiße Anna.</div>
+                            <div class="english-text">My name is Anna.</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Ich komme aus Deutschland.</div>
+                            <div class="english-text">I come from Germany.</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Ich bin Lehrerin.</div>
+                            <div class="english-text">I am a teacher.</div>
+                        </div>
+                        <button class="play-btn" onclick="speakGerman('Ich heiße Anna. Ich komme aus Deutschland.')">🔊 Play Example</button>
+                    </div>
+                    <div class="intro-card">
+                        <h3>Asking for Names</h3>
+                        <div class="example">
+                            <div class="german-text">Wie heißen Sie?</div>
+                            <div class="english-text">What is your name? (formal)</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Wie ist Ihr Name?</div>
+                            <div class="english-text">What is your name?</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Wie heißt du?</div>
+                            <div class="english-text">What's your name? (informal)</div>
+                        </div>
+                        <button class="play-btn" onclick="speakGerman('Wie heißen Sie?')">🔊 Play Example</button>
+                    </div>
+                    <div class="intro-card">
+                        <h3>Talking About Origin</h3>
+                        <div class="example">
+                            <div class="german-text">Woher kommen Sie?</div>
+                            <div class="english-text">Where are you from?</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Ich komme aus Österreich.</div>
+                            <div class="english-text">I come from Austria.</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Ich bin Amerikaner.</div>
+                            <div class="english-text">I am American.</div>
+                        </div>
+                        <button class="play-btn" onclick="speakGerman('Woher kommen Sie? Ich komme aus Österreich.')">🔊 Play Example</button>
+                    </div>
+                    <div class="intro-card">
+                        <h3>Talking About Work</h3>
+                        <div class="example">
+                            <div class="german-text">Was machen Sie beruflich?</div>
+                            <div class="english-text">What do you do for work?</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Ich bin Arzt.</div>
+                            <div class="english-text">I am a doctor.</div>
+                        </div>
+                        <div class="example">
+                            <div class="german-text">Ich arbeite im Marketing.</div>
+                            <div class="english-text">I work in marketing.</div>
+                        </div>
+                        <button class="play-btn" onclick="speakGerman('Was machen Sie beruflich? Ich bin Arzt.')">🔊 Play Example</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Words Section -->
+        <div class="section">
+            <div class="section-header" onclick="toggleSection('words')">
+                <h2>📚 Common German Words with Pictures</h2>
+                <span class="toggle-icon" id="words-icon">▼</span>
+            </div>
+            <div class="section-content" id="words-content">
+                <div class="instruction-note">
+                    <strong>Instructions:</strong> Click on any word card to hear the German pronunciation. Practice repeating each word!
+                </div>
+                <div class="words-grid">
+                    <div class="word-card" onclick="speakGerman('Apfel')">
+                        <span class="word-icon">🍎</span>
+                        <h3>der Apfel</h3>
+                        <div class="english-meaning">Apple</div>
+                        <div class="pronunciation">/AHP-fel/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Buch')">
+                        <span class="word-icon">📚</span>
+                        <h3>das Buch</h3>
+                        <div class="english-meaning">Book</div>
+                        <div class="pronunciation">/bookh/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Auto')">
+                        <span class="word-icon">🚗</span>
+                        <h3>das Auto</h3>
+                        <div class="english-meaning">Car</div>
+                        <div class="pronunciation">/OW-toh/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Hund')">
+                        <span class="word-icon">🐕</span>
+                        <h3>der Hund</h3>
+                        <div class="english-meaning">Dog</div>
+                        <div class="pronunciation">/hoont/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Haus')">
+                        <span class="word-icon">🏠</span>
+                        <h3>das Haus</h3>
+                        <div class="english-meaning">House</div>
+                        <div class="pronunciation">/hows/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Wasser')">
+                        <span class="word-icon">💧</span>
+                        <h3>das Wasser</h3>
+                        <div class="english-meaning">Water</div>
+                        <div class="pronunciation">/VAH-ser/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Sonne')">
+                        <span class="word-icon">☀️</span>
+                        <h3>die Sonne</h3>
+                        <div class="english-meaning">Sun</div>
+                        <div class="pronunciation">/ZON-neh/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Baum')">
+                        <span class="word-icon">🌳</span>
+                        <h3>der Baum</h3>
+                        <div class="english-meaning">Tree</div>
+                        <div class="pronunciation">/bowm/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Telefon')">
+                        <span class="word-icon">📱</span>
+                        <h3>das Telefon</h3>
+                        <div class="english-meaning">Phone</div>
+                        <div class="pronunciation">/teh-leh-FOHN/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Essen')">
+                        <span class="word-icon">🍽️</span>
+                        <h3>das Essen</h3>
+                        <div class="english-meaning">Food</div>
+                        <div class="pronunciation">/ES-sen/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Schule')">
+                        <span class="word-icon">🏫</span>
+                        <h3>die Schule</h3>
+                        <div class="english-meaning">School</div>
+                        <div class="pronunciation">/SHOO-leh/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Familie')">
+                        <span class="word-icon">👨‍👩‍👧‍👦</span>
+                        <h3>die Familie</h3>
+                        <div class="english-meaning">Family</div>
+                        <div class="pronunciation">/fah-MEE-lee-eh/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Katze')">
+                        <span class="word-icon">🐱</span>
+                        <h3>die Katze</h3>
+                        <div class="english-meaning">Cat</div>
+                        <div class="pronunciation">/KAH-tseh/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Brot')">
+                        <span class="word-icon">🍞</span>
+                        <h3>das Brot</h3>
+                        <div class="english-meaning">Bread</div>
+                        <div class="pronunciation">/broht/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Blume')">
+                        <span class="word-icon">🌸</span>
+                        <h3>die Blume</h3>
+                        <div class="english-meaning">Flower</div>
+                        <div class="pronunciation">/BLOO-meh/</div>
+                    </div>
+                    <div class="word-card" onclick="speakGerman('Kaffee')">
+                        <span class="word-icon">☕</span>
+                        <h3>der Kaffee</h3>
+                        <div class="english-meaning">Coffee</div>
+                        <div class="pronunciation">/kah-FAY/</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function toggleSection(sectionId) {
+            const content = document.getElementById(sectionId + '-content');
+            const icon = document.getElementById(sectionId + '-icon');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                icon.textContent = '▼';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other sections
+                const allContents = document.querySelectorAll('.section-content');
+                const allIcons = document.querySelectorAll('.toggle-icon');
+                
+                allContents.forEach(c => c.classList.remove('active'));
+                allIcons.forEach(i => {
+                    i.textContent = '▼';
+                    i.style.transform = 'rotate(0deg)';
+                });
+                
+                // Open clicked section
+                content.classList.add('active');
+                icon.textContent = '▲';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function speakGerman(text) {
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.rate = 0.7;
+                utterance.pitch = 1;
+                utterance.volume = 1;
+                
+                // Try to use a German voice
+                const voices = speechSynthesis.getVoices();
+                const germanVoice = voices.find(voice => 
+                    voice.lang.startsWith('de') || 
+                    voice.name.toLowerCase().includes('german') ||
+                    voice.name.toLowerCase().includes('deutsch')
+                );
+                
+                if (germanVoice) {
+                    utterance.voice = germanVoice;
+                    utterance.lang = 'de-DE';
+                } else {
+                    // Fallback to any available voice with German language setting
+                    utterance.lang = 'de-DE';
+                }
+                
+                speechSynthesis.speak(utterance);
+            } else {
+                alert('Sorry, your browser does not support text-to-speech functionality.');
+            }
+        }
+
+        // Load voices when they become available
+        if ('speechSynthesis' in window) {
+            speechSynthesis.onvoiceschanged = function() {
+                // Voices are now loaded
+            };
+        }
+
+        // Open first section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleSection('greetings');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96af612c81d626cb',t:'MTc1NDQ5MjE3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
