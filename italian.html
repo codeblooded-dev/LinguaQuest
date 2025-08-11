@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+   <style>
+ .container1 {
+    max-width: 500px;
+    width: 100%;
+    padding: 28px 20px 28px 20px;
+    margin: 3vh 270px 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; 
+  }
+  .top {
+   
+    margin-left: 455px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .left-nav-bar {
+  
+    padding: 20px;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-family: Arial, sans-serif;
+  }
+  
+  #level-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 300px;
+    margin: 0 auto 44px auto;
+  }
+  .level-btn {
+    width: 100%;
+    font-size: 1.32rem;
+    font-weight: 850;
+    border-radius: 44px;
+    padding: 22px 0 22px 0;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: filter 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 22px #3332;
+    letter-spacing:0.04em;
+    outline: none;
+    text-align: center;
+  }
+  .level-btn[data-level="beginner"] {
+    background-image: url('images/italy-1.png'); 
+    color: #000000; border: 3px solid #232323;
+  }
+  .level-btn[data-level="intermediate"] {
+    background-image: url('images/italy-2.png');
+    color: #000000; border: 3px solid #931b1b;
+  }
+  .level-btn[data-level="advanced"] {
+    background-image: url('images/italy-3.png');
+    color:  #000000; border: 3px solid #c7a200;
+  }
+  .level-btn:hover, .level-btn:focus {
+    filter: brightness(1.08) drop-shadow(0 0 10px #ffd50044);
+    box-shadow: 0 0 18px #ffd70044;
+    outline: 2px solid #23232366;
+  }
+  .level-btn.selected {
+    border-width: 5px;
+    outline: 3px solid #33ff3360;
+    filter: brightness(1.05) !important;
+    box-shadow: 0 0 18px #333;
+  }
+
+    .stats {
+    display: flex; justify-content: space-between; width:100%; margin-bottom: 14px;
+    font-weight: 600; font-size: 1.1rem; color: #237f23;
+  }
+  .xp { color: #27ae60; }
+  .hearts { color: #db4747; }
+  .level-indicator {
+    font-size: .97rem; color: #6ae4e4; margin-bottom: 16px; font-weight: 650; letter-spacing: 0.04em;
+  }
+  .timer {
+    font-family: 'Consolas', monospace;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 8px 18px;
+    background: #22185f; border-radius: 8px;
+    color: #33ff33; margin: 0 auto 20px auto;
+    outline: 2px solid #2dfc62aa;
+    letter-spacing: 0.04em;
+    text-align: center;
+    display: block;
+    min-width: 48px;
+    transition: background 0.2s, color 0.2s; user-select: none;
+  }
+  .timer.warning { background: #c02828; color: #ffd700; }
+  .question {
+    font-size: 1.24rem; font-weight: 700; margin-bottom: 26px; text-align: center;
+    color: #ffffffee; user-select: none;
+  }
+  .options {
+    display: flex; flex-direction: column; gap:14px; width:100%; margin-bottom: 12px;
+  }
+  label.option {
+    background: #efe7d6;
+    color: #212223;
+    padding: 14px 18px;
+    border-radius: 13px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    border: 3px solid transparent;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  label.option:hover, label.option.input-checked {
+    background: #32c276;
+    color: #050a10;
+    border-color: #ffd700;
+    box-shadow: 0 0 10px #faeb9877;
+  }
+  input[type="radio"] { display: none; }
+  .btn-next {
+    background: #ffd700;
+    color: #232323;
+    border: none;
+    border-radius: 24px;
+    font-weight: 800;
+    font-size: 1.13rem;
+    padding: 15px 36px;
+    margin: 24px auto 0 auto;
+    cursor: pointer;
+    box-shadow: 0 3px #23232336;
+    width: 90%;
+    transition: background 0.23s, color 0.2s, box-shadow 0.2s;
+    display: block; user-select: none;
+  }
+  .btn-next:disabled {
+    background: #ffeeb9; color: #b99d2f; cursor: not-allowed; box-shadow: none;
+  }
+  .btn-next:hover:not(:disabled) { background: #fae56d; }
+  .feedback {
+    margin-top: 16px; font-weight: 700; padding: 13px 0;
+    border-radius: 12px; text-align: center; opacity: 0; min-height: 40px;
+    transition: opacity 0.24s; color: white;
+  }
+  .feedback.show { opacity: 1; }
+  .feedback.correct { background: #55f059; color: #191; }
+  .feedback.incorrect { background: #de2626de; color: #ffe; }
+  .result {
+    margin-top: 36px; text-align: center; font-size: 1.18rem; font-weight: 700; color: #175517cc;
+  }
+  @media (max-width: 500px) {
+    .container1 { max-width: 97vw; padding: 15px 4vw 18px 4vw; }
+    header { font-size: 1.25rem; margin-bottom: 18px; }
+    #level-menu { width: 99%; gap: 17px; padding: 0; }
+    .btn-next { font-size: 1.04rem; }
+    .left-nav-bar {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-right: none;
+    border-bottom: 3px solid #35b926;
+  }
+  }
+   </style>
+</head>
+<body>
+    
+    <div class="container">
+    <!-- Left Sidebar -->
+    <div class="left-nav-bar">
+      <span class="logo">Learn Now</span><br><br><br>
+      <a href="index.html">Home</a><br><br><br>
+      <a href="launguage.html">Go Back</a><br><br><br>
+      <a href="italianlesson.html">Study Material</a><br><br><br>
+     
+    </div>
+
+    <div class="main-content">
+      <h1 class="top" ><br><br> Solve Italian Quiz with LinguaQuest!</h1><br><br>
+      <div class="container1">
+    <section id="level-menu">
+      <button class="level-btn" data-level="beginner" type="button">Beginner</button>
+      <button class="level-btn" data-level="intermediate" type="button">Intermediate</button>
+      <button class="level-btn" data-level="advanced" type="button">Advanced</button>
+    </section>
+    <section id="quiz-area" aria-live="polite" style="width:100%;max-width:460px;"></section>
+  </div>
+  <script>
+const quizDataItalian = {
+  beginner: [
+    { question: "What is 'Hello' in Italian?", options: ["Ciao", "Hola", "Salut", "Hallo"] },
+    { question: "What is 'Thank you' in Italian?", options: ["Grazie", "Merci", "Danke", "Gracias"] },
+    { question: "What is 'Bread' in Italian?", options: ["Pane", "Pain", "Pan", "Brot"] },
+    { question: "What is 'Yes' in Italian?", options: ["Sì", "Oui", "Ja", "Sí"] },
+    { question: "What is 'Water' in Italian?", options: ["Acqua", "Eau", "Agua", "Wasser"] },
+    { question: "What is 'Goodbye' in Italian?", options: ["Arrivederci", "Adiós", "Au revoir", "Tschüss"] },
+    { question: "What is 'Milk' in Italian?", options: ["Latte", "Leche", "Lait", "Milch"] },
+    { question: "What is 'Cat' in Italian?", options: ["Gatto", "Gato", "Chat", "Katze"] },
+    { question: "What is 'House' in Italian?", options: ["Casa", "Maison", "Haus", "Casa"] },
+    { question: "What is 'Please' in Italian?", options: ["Per favore", "S'il vous plaît", "Bitte", "Por favor"] }
+  ],
+
+  intermediate: [
+    { question: "What is 'Car' in Italian?", options: ["Macchina", "Auto", "Voiture", "Coche"] },
+    { question: "What is 'Book' in Italian?", options: ["Libro", "Livre", "Buch", "Libro"] },
+    { question: "What is 'School' in Italian?", options: ["Scuola", "École", "Schule", "Escuela"] },
+    { question: "What is 'Friend' in Italian?", options: ["Amico", "Ami", "Freund", "Amigo"] },
+    { question: "What is 'Window' in Italian?", options: ["Finestra", "Fenêtre", "Ventana", "Fenster"] },
+    { question: "What is 'City' in Italian?", options: ["Città", "Ville", "Ciudad", "Stadt"] },
+    { question: "What is 'Teacher' in Italian?", options: ["Insegnante", "Professeur", "Profesor", "Lehrer"] },
+    { question: "What is 'Dog' in Italian?", options: ["Cane", "Chien", "Perro", "Hund"] },
+    { question: "What is 'Garden' in Italian?", options: ["Giardino", "Jardin", "Garten", "Jardín"] },
+    { question: "What is 'Table' in Italian?", options: ["Tavolo", "Table", "Mesa", "Tisch"] }
+  ],
+
+  advanced: [
+    { question: "What is 'Happiness' in Italian?", options: ["Felicità", "Bonheur", "Glück", "Felicidad"] },
+    { question: "What is 'Freedom' in Italian?", options: ["Libertà", "Liberté", "Libertad", "Freiheit"] },
+    { question: "What is 'Knowledge' in Italian?", options: ["Conoscenza", "Connaissance", "Conocimiento", "Wissen"] },
+    { question: "What is 'Nature' in Italian?", options: ["Natura", "Nature", "Naturaleza", "Natur"] },
+    { question: "What is 'Wisdom' in Italian?", options: ["Saggezza", "Sagesse", "Sabiduría", "Weisheit"] },
+    { question: "What is 'Journey' in Italian?", options: ["Viaggio", "Voyage", "Viaje", "Reise"] },
+    { question: "What is 'Strength' in Italian?", options: ["Forza", "Force", "Fuerza", "Stärke"] },
+    { question: "What is 'Peace' in Italian?", options: ["Pace", "Paix", "Paz", "Frieden"] },
+    { question: "What is 'Culture' in Italian?", options: ["Cultura", "Culture", "Cultura", "Kultur"] },
+    { question: "What is 'Dream' in Italian?", options: ["Sogno", "Rêve", "Sueño", "Traum"] }
+  ]
+};
+
+
+let currLevel = null, curr = 0, XP = 0, hearts = 3, timer = null, timeLeft = 10, answered = false;
+
+function showLevelMenu() {
+  document.getElementById('quiz-area').innerHTML = "";
+  document.getElementById('level-menu').style.display = "";
+  document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('selected'));
+  currLevel = null; curr = 0; XP = 0; hearts = 3;
+}
+
+function beginQuiz(level) {
+  currLevel = level;
+  curr = 0;
+  XP = 0;
+  hearts = 3;
+  document.getElementById('level-menu').style.display = "none";
+  renderQuestion();
+}
+
+document.querySelectorAll('.level-btn').forEach(btn => btn.onclick = function() {
+  document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  beginQuiz(btn.getAttribute('data-level'));
+});
+
+function renderQuestion() {
+  answered = false;
+  clearInterval(timer);
+  const qArr = quizData[currLevel];
+  const total = qArr.length;
+  const qObj = qArr[curr];
+  const quizArea = document.getElementById('quiz-area');
+  quizArea.innerHTML = `
+    <div class="stats">
+      <div class="xp">XP: <span id="xp">${XP}</span></div>
+      <div class="hearts">❤️ <span id="hearts">${hearts}</span></div>
+    </div>
+    <div class="level-indicator">
+      Level: <strong style="color:#33ff33;">${capitalize(currLevel)}</strong> • Question ${curr + 1} of ${total}
+    </div>
+    <div id="timer" class="timer">10</div>
+    <form id="quiz-form">
+      <div class="question" id="question-container">${qObj.question}</div>
+      <div class="options" id="options-container"></div>
+      <button type="submit" class="btn-next" id="next-btn" disabled>Next</button>
+    </form>
+    <div class="feedback" id="feedback"></div>
+    <div class="result" id="result"></div>
+  `;
+  const optionsContainer = document.getElementById('options-container');
+  for (const key in qObj.options) {
+    optionsContainer.insertAdjacentHTML('beforeend',
+      `<label class="option"><input type="radio" name="answer" value="${key}"/> ${qObj.options[key]}</label>`
+    );
+  }
+  document.querySelectorAll('input[type=radio]').forEach(input => {
+    input.addEventListener('change', () => {
+      document.getElementById('next-btn').disabled = false;
+      document.querySelectorAll('.option').forEach(l => l.classList.remove('input-checked'));
+      input.parentNode.classList.add('input-checked');
+      if (!answered) resetFeedback();
+    });
+  });
+  startTimer();
+  document.getElementById('quiz-form').onsubmit = function(e) {
+    e.preventDefault();
+    if (answered) return nextQ();
+    clearInterval(timer);
+    const selected = document.querySelector('input[name=answer]:checked');
+    if (!selected) return;
+    answered = true;
+    const secondsTaken = 10 - timeLeft;
+    const xpGained = (selected.value === qObj.correct) ? Math.max(1, 11 - secondsTaken) : 0;
+    if (selected.value === qObj.correct) {
+      XP += xpGained;
+      showFeedback(true, `+${xpGained} XP!`);
+    } else {
+      hearts--;
+      showFeedback(false, `Wrong! Correct: ${qObj.options[qObj.correct]}`);
+    }
+    document.querySelectorAll('input[name=answer]').forEach(inp => inp.disabled = true);
+    renderStats();
+    setTimeout(nextQ, 1500);
+  };
+}
+
+function startTimer() {
+  timeLeft = 10; updateTimer(true);
+  clearInterval(timer);
+  timer = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      if (!answered) autoWrong();
+    }
+  }, 1000);
+}
+function updateTimer(resetStyle = false) {
+  const timerEl = document.getElementById('timer');
+  if (!timerEl) return;
+  timerEl.textContent = timeLeft;
+  if (timeLeft <= 3) {
+    timerEl.classList.add("warning");
+  } else if (resetStyle) {
+    timerEl.classList.remove("warning");
+  }
+}
+function autoWrong() {
+  answered = true;
+  hearts--;
+  showFeedback(false, "⏰ Time's up!");
+  document.getElementById('next-btn').disabled = false;
+  document.querySelectorAll('input[type=radio]').forEach(inp => inp.disabled = true);
+  renderStats();
+  setTimeout(nextQ, 1500);
+}
+function nextQ() {
+  const qArr = quizData[currLevel];
+  if (++curr >= qArr.length || hearts === 0) {
+    quizEnd();
+  } else {
+    renderQuestion();
+  }
+}
+function showFeedback(correct, msg = "") {
+  const feedback = document.getElementById('feedback');
+  feedback.className = `feedback show ${correct ? "correct" : "incorrect"}`;
+  feedback.textContent = correct ? `Correct! ${msg}` : msg || "Wrong!";
+}
+function resetFeedback() {
+  const feedback = document.getElementById('feedback');
+  if (feedback) {
+    feedback.className = "feedback";
+    feedback.textContent = "";
+  }
+}
+function renderStats() {
+  const x = document.getElementById('xp');
+  const h = document.getElementById('hearts');
+  if (x) x.textContent = XP;
+  if (h) h.textContent = hearts;
+}
+function quizEnd() {
+  clearInterval(timer);
+  const quizArea = document.getElementById('quiz-area');
+  quizArea.innerHTML = `
+    <div class="stats">
+      <div class="xp">XP: ${XP}</div>
+      <div class="hearts">❤️ ${hearts}</div>
+    </div>
+    <div class="result" style="margin-top:24px;">
+      <p>Quiz complete!</p>
+      <p>Level: <b style="color:#33bb33">${capitalize(currLevel)}</b></p>
+      <p>Score: <span style="color:#2ee68b">${XP} XP</span></p>
+      <p>Hearts left: <span style="color:#db4747">❤️ ${hearts}</span></p>
+      <button onclick="showLevelMenu()" class="btn-next" style="margin-top:24px;">Try Another Level</button>
+      <button onclick="beginQuiz('${currLevel}')" class="btn-next" style="background:#23215c;color:#32c276;margin-top:14px;">Try Again</button>
+    </div>`;
+}
+function capitalize(x) {
+  return x.charAt(0).toUpperCase() + x.slice(1);
+}
+showLevelMenu();
+</script>
+
+</body>
+        
+       
+</div>
+</body>
+</html>
+
+
+
