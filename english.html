@@ -200,42 +200,42 @@
   <script>
 const quizData = {
   beginner: [
-    { question: "What is the opposite of 'cold'?", options: { a: "Hot", b: "Warm", c: "Cool" }, correct: "a" },
-    { question: "Which is a fruit?", options: { a: "Carrot", b: "Banana", c: "Potato" }, correct: "b" },
-    { question: "What is the plural of 'mouse'?", options: { a: "Mouses", b: "Mice", c: "Mousees" }, correct: "b" },
-    { question: "What is the color of the sky on a clear day?", options: { a: "Blue", b: "Green", c: "Black" }, correct: "a" },
-    { question: "Which animal says 'meow'?", options: { a: "Dog", b: "Cat", c: "Cow" }, correct: "b" },
-    { question: "What is the past tense of 'run'?", options: { a: "Ran", b: "Runned", c: "Running" }, correct: "a" },
-    { question: "Which word means the opposite of 'up'?", options: { a: "Down", b: "Back", c: "Below" }, correct: "a" },
-    { question: "What is the opposite of 'happy'?", options: { a: "Glad", b: "Angry", c: "Sad" }, correct: "c" },
-    { question: "What is the English word for 'bonjour'?", options: { a: "Hello", b: "Bye", c: "Thank you" }, correct: "a" },
-    { question: "Which one is a vehicle?", options: { a: "Bus", b: "Tree", c: "Table" }, correct: "a" }
+    { question: "Fill in the blank: She ____ to the park every Sunday.", options: { a: "go", b: "goes", c: "went" }, correct: "b" },
+    { question: "Which word means 'happy'?", options: { a: "sad", b: "angry", c: "joyful" }, correct: "c" },
+    { question: "Fill in the blank: My name ____ John.", options: { a: "is", b: "are", c: "am" }, correct: "a" },
+    { question: "Which of these is a fruit?", options: { a: "carrot", b: "apple", c: "potato" }, correct: "b" },
+    { question: "Choose the correct plural: One child, two ____", options: { a: "childs", b: "children", c: "childes" }, correct: "b" },
+    { question: "Fill in the blank: They ____ playing football now.", options: { a: "is", b: "are", c: "am" }, correct: "b" },
+    { question: "Which word means 'big'?", options: { a: "small", b: "tiny", c: "large" }, correct: "c" },
+    { question: "Fill in the blank: This is my ____ book.", options: { a: "I", b: "mine", c: "my" }, correct: "c" },
+    { question: "Which one is a color?", options: { a: "blue", b: "table", c: "tree" }, correct: "a" },
+    { question: "Fill in the blank: We live ____ a small town.", options: { a: "on", b: "in", c: "at" }, correct: "b" }
   ],
 
   intermediate: [
-    { question: "What is the synonym of 'angry'?", options: { a: "Happy", b: "Mad", c: "Cool" }, correct: "b" },
-    { question: "Which word means 'to fix something'?", options: { a: "Break", b: "Build", c: "Repair" }, correct: "c" },
-    { question: "What is the opposite of 'fast'?", options: { a: "Slow", b: "Small", c: "Stop" }, correct: "a" },
-    { question: "Which word means 'to look quickly'?", options: { a: "Stare", b: "Glance", c: "Gaze" }, correct: "b" },
-    { question: "What is a synonym of 'clever'?", options: { a: "Smart", b: "Tall", c: "Weak" }, correct: "a" },
-    { question: "Which word means 'to write in a diary'?", options: { a: "Journal", b: "Letter", c: "Email" }, correct: "a" },
-    { question: "What is the opposite of 'ancient'?", options: { a: "Modern", b: "Old", c: "Past" }, correct: "a" },
-    { question: "Which word means 'to talk softly'?", options: { a: "Shout", b: "Whisper", c: "Scream" }, correct: "b" },
-    { question: "What is the synonym of 'tiny'?", options: { a: "Huge", b: "Small", c: "Large" }, correct: "b" },
-    { question: "Which word means 'to take care of someone'?", options: { a: "Care", b: "Ignore", c: "Leave" }, correct: "a" }
+    { question: "Choose the correct sentence.", options: { a: "She don’t like coffee.", b: "She doesn’t like coffee.", c: "She not like coffee." }, correct: "b" },
+    { question: "Fill in the blank: If I ____ more time, I would travel.", options: { a: "have", b: "had", c: "having" }, correct: "b" },
+    { question: "Which word is a synonym of 'quick'?", options: { a: "slow", b: "rapid", c: "lazy" }, correct: "b" },
+    { question: "Fill in the blank: He has lived here ____ 2015.", options: { a: "since", b: "for", c: "from" }, correct: "a" },
+    { question: "Choose the correct comparative form: tall → ____", options: { a: "taller", b: "more tall", c: "tallest" }, correct: "a" },
+    { question: "Fill in the blank: This cake tastes ____.", options: { a: "good", b: "well", c: "better" }, correct: "a" },
+    { question: "Which sentence is in passive voice?", options: { a: "The chef cooked the meal.", b: "The meal was cooked by the chef.", c: "The chef is cooking the meal." }, correct: "b" },
+    { question: "Fill in the blank: I’m looking forward ____ you.", options: { a: "to meet", b: "meeting", c: "to meeting" }, correct: "c" },
+    { question: "Which idiom means 'to start again'?", options: { a: "Break the ice", b: "Back to square one", c: "Under the weather" }, correct: "b" },
+    { question: "Fill in the blank: We’ve been waiting ____ an hour.", options: { a: "for", b: "since", c: "from" }, correct: "a" }
   ],
 
   advanced: [
-    { question: "What does 'benevolent' mean?", options: { a: "Kind and generous", b: "Angry and rude", c: "Sad and lonely" }, correct: "a" },
-    { question: "What does 'meticulous' mean?", options: { a: "Very fast", b: "Very careful and precise", c: "Very lazy" }, correct: "b" },
-    { question: "What does 'ephemeral' mean?", options: { a: "Lasting forever", b: "Short-lived", c: "Very large" }, correct: "b" },
-    { question: "What does 'lucid' mean?", options: { a: "Clear and easy to understand", b: "Confusing", c: "Very dark" }, correct: "a" },
-    { question: "What does 'ardent' mean?", options: { a: "Very enthusiastic", b: "Very weak", c: "Very sad" }, correct: "a" },
-    { question: "What does 'diligent' mean?", options: { a: "Hardworking", b: "Lazy", c: "Angry" }, correct: "a" },
-    { question: "What does 'versatile' mean?", options: { a: "Able to do many things", b: "Stubborn", c: "Angry" }, correct: "a" },
-    { question: "What does 'scrutinize' mean?", options: { a: "To ignore", b: "To examine carefully", c: "To shout loudly" }, correct: "b" },
-    { question: "What does 'resilient' mean?", options: { a: "Able to recover quickly", b: "Easily broken", c: "Lazy and slow" }, correct: "a" },
-    { question: "What does 'candid' mean?", options: { a: "Honest and straightforward", b: "Dishonest", c: "Confused" }, correct: "a" }
+    { question: "Choose the correct conditional: 'If I had studied, I ____ passed.'", options: { a: "will have", b: "would have", c: "would" }, correct: "b" },
+    { question: "Fill in the blank: I wish I ____ taller.", options: { a: "am", b: "were", c: "was" }, correct: "b" },
+    { question: "Which is a formal synonym for 'help'?", options: { a: "assist", b: "aid", c: "both" }, correct: "c" },
+    { question: "Choose the correct subjunctive: 'It’s important that he ____ on time.'", options: { a: "is", b: "be", c: "was" }, correct: "b" },
+    { question: "Fill in the blank: Hardly ____ I entered than it started raining.", options: { a: "have", b: "had", c: "did" }, correct: "b" },
+    { question: "Which sentence is grammatically correct?", options: { a: "Neither of them are ready.", b: "Neither of them is ready.", c: "Neither of them be ready." }, correct: "b" },
+    { question: "Choose the correct idiom: 'To reveal a secret' means ____.", options: { a: "spill the beans", b: "kick the bucket", c: "hit the sack" }, correct: "a" },
+    { question: "Fill in the blank: The film, ____ we saw last night, was amazing.", options: { a: "which", b: "that", c: "whom" }, correct: "a" },
+    { question: "Which tense is used here? 'She had been working all day.'", options: { a: "past perfect continuous", b: "past continuous", c: "present perfect" }, correct: "a" },
+    { question: "Choose the correct phrase: 'No sooner ____ the train arrived than it departed.'", options: { a: "had", b: "has", c: "have" }, correct: "a" }
   ]
 };
 
@@ -410,6 +410,7 @@ showLevelMenu();
 </div>
 </body>
 </html>
+
 
 
 
