@@ -74,11 +74,8 @@ div.language-list {
   gap: 20px;
   padding: 20px;
 }
-.btn {
-  display: flex;
-  justify-content: flex-end; 
-  width: 100%; 
-}
+ 
+
 button {
   background-color: #35b926; 
   color: white;
@@ -278,6 +275,7 @@ button {
   background-repeat: no-repeat;
   background-position: center center;
 }
+
 
 
 
