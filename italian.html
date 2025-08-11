@@ -54,7 +54,6 @@
     box-shadow: 0 4px 22px #3332;
     letter-spacing:0.04em;
     outline: none;
-    text-align: center;
   }
   .level-btn[data-level="beginner"] {
     background-image: url('images/italy-1.png'); 
@@ -184,7 +183,7 @@
       <span class="logo">Learn Now</span><br><br><br>
       <a href="index.html">Home</a><br><br><br>
       <a href="launguage.html">Go Back</a><br><br><br>
-      <a href="italianlesson.html">Study Material</a><br><br><br>
+      <a href="italiancontent.html">Study Material</a><br><br><br>
      
     </div>
 
@@ -199,44 +198,44 @@
     <section id="quiz-area" aria-live="polite" style="width:100%;max-width:460px;"></section>
   </div>
   <script>
-const quizDataItalian = {
+const quizData = {
   beginner: [
-    { question: "What is 'Hello' in Italian?", options: ["Ciao", "Hola", "Salut", "Hallo"] },
-    { question: "What is 'Thank you' in Italian?", options: ["Grazie", "Merci", "Danke", "Gracias"] },
-    { question: "What is 'Bread' in Italian?", options: ["Pane", "Pain", "Pan", "Brot"] },
-    { question: "What is 'Yes' in Italian?", options: ["Sì", "Oui", "Ja", "Sí"] },
-    { question: "What is 'Water' in Italian?", options: ["Acqua", "Eau", "Agua", "Wasser"] },
-    { question: "What is 'Goodbye' in Italian?", options: ["Arrivederci", "Adiós", "Au revoir", "Tschüss"] },
-    { question: "What is 'Milk' in Italian?", options: ["Latte", "Leche", "Lait", "Milch"] },
-    { question: "What is 'Cat' in Italian?", options: ["Gatto", "Gato", "Chat", "Katze"] },
-    { question: "What is 'House' in Italian?", options: ["Casa", "Maison", "Haus", "Casa"] },
-    { question: "What is 'Please' in Italian?", options: ["Per favore", "S'il vous plaît", "Bitte", "Por favor"] }
+    { question: "Choose the correct translation: 'I eat pizza'.", options: { a: "Io mangio pizza", b: "Io bevo pizza", c: "Io corro pizza" }, correct: "a" },
+    { question: "Fill in the blank: '___ mela' (The apple)", options: { a: "Il", b: "La", c: "Lo" }, correct: "b" },
+    { question: "What is the plural of 'ragazzo' (boy)?", options: { a: "Ragazzos", b: "Ragazzi", c: "Ragazze" }, correct: "b" },
+    { question: "Choose the correct translation for 'Good night'.", options: { a: "Buonanotte", b: "Buongiorno", c: "Buonasera" }, correct: "a" },
+    { question: "Which is the correct Italian for 'I drink water'?", options: { a: "Io mangio acqua", b: "Io bevo acqua", c: "Io corro acqua" }, correct: "b" },
+    { question: "Which article is used for 'pane' (bread)?", options: { a: "Il", b: "La", c: "Lo" }, correct: "a" },
+    { question: "Fill in the blank: 'Io ___ un libro' (I read a book)", options: { a: "leggo", b: "bevo", c: "scrivo" }, correct: "a" },
+    { question: "Translate into Italian: 'She is a girl'.", options: { a: "Lei è una ragazza", b: "Lei è un ragazzo", c: "Lei è la ragazza" }, correct: "a" },
+    { question: "Which of these means 'Please'?", options: { a: "Per favore", b: "Per piacere", c: "Both a and b" }, correct: "c" },
+    { question: "Choose the correct form: 'The boys eat pasta'?", options: { a: "I ragazzi mangiano pasta", b: "Gli ragazzi mangiano pasta", c: "Le ragazzi mangiano pasta" }, correct: "a" }
   ],
 
   intermediate: [
-    { question: "What is 'Car' in Italian?", options: ["Macchina", "Auto", "Voiture", "Coche"] },
-    { question: "What is 'Book' in Italian?", options: ["Libro", "Livre", "Buch", "Libro"] },
-    { question: "What is 'School' in Italian?", options: ["Scuola", "École", "Schule", "Escuela"] },
-    { question: "What is 'Friend' in Italian?", options: ["Amico", "Ami", "Freund", "Amigo"] },
-    { question: "What is 'Window' in Italian?", options: ["Finestra", "Fenêtre", "Ventana", "Fenster"] },
-    { question: "What is 'City' in Italian?", options: ["Città", "Ville", "Ciudad", "Stadt"] },
-    { question: "What is 'Teacher' in Italian?", options: ["Insegnante", "Professeur", "Profesor", "Lehrer"] },
-    { question: "What is 'Dog' in Italian?", options: ["Cane", "Chien", "Perro", "Hund"] },
-    { question: "What is 'Garden' in Italian?", options: ["Giardino", "Jardin", "Garten", "Jardín"] },
-    { question: "What is 'Table' in Italian?", options: ["Tavolo", "Table", "Mesa", "Tisch"] }
+    { question: "Translate: 'They are drinking coffee'.", options: { a: "Loro bevono caffè", b: "Essi mangiano caffè", c: "Loro leggono caffè" }, correct: "a" },
+    { question: "Which is the correct past tense of 'mangiare' for 'io'?", options: { a: "Mangiai", b: "Ho mangiato", c: "Mangivo" }, correct: "b" },
+    { question: "Choose the correct sentence: 'We go to school every day'.", options: { a: "Noi andiamo a scuola ogni giorno", b: "Noi andiamo scuola ogni giorno", c: "Noi andiamo alla scuola ogni giorno" }, correct: "a" },
+    { question: "Fill in the blank: 'Lui ___ al parco' (He is going to the park).", options: { a: "va", b: "andare", c: "vanno" }, correct: "a" },
+    { question: "Which pronoun replaces 'Maria e io'?", options: { a: "Noi", b: "Loro", c: "Voi" }, correct: "a" },
+    { question: "What is the feminine plural of 'bello'?", options: { a: "Belle", b: "Belli", c: "Bellas" }, correct: "a" },
+    { question: "Translate into Italian: 'I have two sisters'.", options: { a: "Io ho due sorelle", b: "Io sono due sorelle", c: "Io avere due sorelle" }, correct: "a" },
+    { question: "Which sentence means 'Do you like pizza?' informal.", options: { a: "Ti piace la pizza?", b: "Ti piaci la pizza?", c: "Ti piace pizza?" }, correct: "a" },
+    { question: "Choose the correct verb: 'Voi ___ a casa?' (Are you going home?)", options: { a: "andate", b: "andiamo", c: "vanno" }, correct: "a" },
+    { question: "Which is the correct translation: 'We have been in Rome for two days'?", options: { a: "Siamo a Roma da due giorni", b: "Siamo in Roma per due giorni", c: "Abbiamo a Roma da due giorni" }, correct: "a" }
   ],
 
   advanced: [
-    { question: "What is 'Happiness' in Italian?", options: ["Felicità", "Bonheur", "Glück", "Felicidad"] },
-    { question: "What is 'Freedom' in Italian?", options: ["Libertà", "Liberté", "Libertad", "Freiheit"] },
-    { question: "What is 'Knowledge' in Italian?", options: ["Conoscenza", "Connaissance", "Conocimiento", "Wissen"] },
-    { question: "What is 'Nature' in Italian?", options: ["Natura", "Nature", "Naturaleza", "Natur"] },
-    { question: "What is 'Wisdom' in Italian?", options: ["Saggezza", "Sagesse", "Sabiduría", "Weisheit"] },
-    { question: "What is 'Journey' in Italian?", options: ["Viaggio", "Voyage", "Viaje", "Reise"] },
-    { question: "What is 'Strength' in Italian?", options: ["Forza", "Force", "Fuerza", "Stärke"] },
-    { question: "What is 'Peace' in Italian?", options: ["Pace", "Paix", "Paz", "Frieden"] },
-    { question: "What is 'Culture' in Italian?", options: ["Cultura", "Culture", "Cultura", "Kultur"] },
-    { question: "What is 'Dream' in Italian?", options: ["Sogno", "Rêve", "Sueño", "Traum"] }
+    { question: "Translate: 'If I had money, I would travel to Italy'.", options: { a: "Se avessi soldi, viaggerei in Italia", b: "Se avrei soldi, viaggerei in Italia", c: "Se ho soldi, viaggio in Italia" }, correct: "a" },
+    { question: "Choose the correct subjunctive: 'Penso che lui ___ felice'.", options: { a: "sia", b: "è", c: "sarà" }, correct: "a" },
+    { question: "Which means: 'Despite the rain, we went out'?", options: { a: "Nonostante la pioggia, siamo usciti", b: "Per la pioggia, siamo usciti", c: "Poiché piove, siamo usciti" }, correct: "a" },
+    { question: "Translate: 'I would have eaten if I had been hungry'.", options: { a: "Avrei mangiato se avessi avuto fame", b: "Mangerei se ho fame", c: "Ho mangiato se avevo fame" }, correct: "a" },
+    { question: "Fill in: 'Spero che tu ___ presto' (I hope you come soon).", options: { a: "venga", b: "vienga", c: "vieni" }, correct: "a" },
+    { question: "Which tense is used here? 'Avevo già finito quando è arrivato.'", options: { a: "Trapassato prossimo", b: "Passato prossimo", c: "Imperfetto" }, correct: "a" },
+    { question: "Choose the correct idiomatic expression for 'It’s raining a lot'.", options: { a: "Piove a catinelle", b: "Piove molto bene", c: "Sta piovendo piano" }, correct: "a" },
+    { question: "Which sentence is grammatically correct?", options: { a: "Non ho mai visto un film così bello", b: "Mai ho visto un film così bello", c: "Non mai ho visto un film così bello" }, correct: "a" },
+    { question: "Translate: 'Let’s go for a walk after dinner'.", options: { a: "Facciamo una passeggiata dopo cena", b: "Andiamo una passeggiata dopo cena", c: "Camminiamo dopo cena" }, correct: "a" },
+    { question: "Choose the correct form: 'The children would have played in the garden'.", options: { a: "I bambini avrebbero giocato in giardino", b: "I bambini giocavano in giardino", c: "I bambini giocano in giardino" }, correct: "a" }
   ]
 };
 
