@@ -199,72 +199,42 @@
   </div>
   <script>
 const quizData = {
-  beginner: [
-    { question: "What is the Spanish word for 'friend'?", options: { a: "Amigo", b: "Libro", c: "Gato" }, correct: "a" },
-    { question: "How do you say 'sun' in Spanish?", options: { a: "Luna", b: "Sol", c: "Estrella" }, correct: "b" },
-    { question: "Which Spanish word means 'milk'?", options: { a: "Leche", b: "Agua", c: "Pan" }, correct: "a" },
-    { question: "What is the Spanish word for 'mother'?", options: { a: "Padre", b: "Madre", c: "Hermano" }, correct: "b" },
-    { question: "How do you say 'cat' in Spanish?", options: { a: "Perro", b: "Pájaro", c: "Gato" }, correct: "c" },
-    { question: "Which is the Spanish word for 'red'?", options: { a: "Rojo", b: "Azul", c: "Verde" }, correct: "a" },
-    { question: "What is the Spanish word for 'bread'?", options: { a: "Pan", b: "Leche", c: "Queso" }, correct: "a" },
-    { question: "How do you say 'good night' in Spanish?", options: { a: "Buenas noches", b: "Buenos días", c: "Adiós" }, correct: "a" },
-    { question: "What is the Spanish word for 'book'?", options: { a: "Libro", b: "Mesa", c: "Puerta" }, correct: "a" },
-    { question: "Which Spanish word means 'table'?", options: { a: "Silla", b: "Mesa", c: "Cama" }, correct: "b" },
-    { question: "How do you say 'hello' in Spanish?", options: { a: "Hola", b: "Adiós", c: "Gracias" }, correct: "a" },
-    { question: "What is the Spanish word for 'school'?", options: { a: "Escuela", b: "Iglesia", c: "Mercado" }, correct: "a" },
-    { question: "How do you say 'father' in Spanish?", options: { a: "Padre", b: "Hermano", c: "Abuelo" }, correct: "a" },
-    { question: "Which Spanish word means 'apple'?", options: { a: "Naranja", b: "Plátano", c: "Manzana" }, correct: "c" },
-    { question: "What is the Spanish word for 'door'?", options: { a: "Ventana", b: "Puerta", c: "Pared" }, correct: "b" },
-    { question: "How do you say 'thank you' in Spanish?", options: { a: "Gracias", b: "Perdón", c: "Hola" }, correct: "a" },
-    { question: "What is the Spanish word for 'milk'?", options: { a: "Leche", b: "Queso", c: "Pan" }, correct: "a" },
-    { question: "How do you say 'city' in Spanish?", options: { a: "Campo", b: "Pueblo", c: "Ciudad" }, correct: "c" },
-    { question: "What is the Spanish word for 'night'?", options: { a: "Día", b: "Noche", c: "Tarde" }, correct: "b" },
-    { question: "How do you say 'water' in Spanish?", options: { a: "Leche", b: "Agua", c: "Jugo" }, correct: "b" }
-  ],
-  intermediate: [
-    { question: "What is the Spanish word for 'teacher'?", options: { a: "Maestro", b: "Estudiante", c: "Escuela" }, correct: "a" },
-    { question: "How do you say 'window' in Spanish?", options: { a: "Puerta", b: "Ventana", c: "Techo" }, correct: "b" },
-    { question: "Which Spanish word means 'breakfast'?", options: { a: "Cena", b: "Desayuno", c: "Almuerzo" }, correct: "b" },
-    { question: "What is the Spanish word for 'hospital'?", options: { a: "Hospital", b: "Farmacia", c: "Iglesia" }, correct: "a" },
-    { question: "How do you say 'library' in Spanish?", options: { a: "Biblioteca", b: "Librería", c: "Escuela" }, correct: "a" },
-    { question: "Which is the Spanish word for 'beautiful'?", options: { a: "Feo", b: "Bonito", c: "Rápido" }, correct: "b" },
-    { question: "What is the Spanish word for 'coffee'?", options: { a: "Café", b: "Té", c: "Agua" }, correct: "a" },
-    { question: "How do you say 'garden' in Spanish?", options: { a: "Parque", b: "Jardín", c: "Bosque" }, correct: "b" },
-    { question: "Which Spanish word means 'money'?", options: { a: "Dinero", b: "Precio", c: "Compra" }, correct: "a" },
-    { question: "What is the Spanish word for 'street'?", options: { a: "Calle", b: "Puente", c: "Camino" }, correct: "a" },
-    { question: "How do you say 'family' in Spanish?", options: { a: "Familia", b: "Amigos", c: "Gente" }, correct: "a" },
-    { question: "Which word means 'friend' in Spanish?", options: { a: "Enemigo", b: "Amigo", c: "Vecino" }, correct: "b" },
-    { question: "What is the Spanish word for 'city center'?", options: { a: "Centro de la ciudad", b: "Campo", c: "Playa" }, correct: "a" },
-    { question: "How do you say 'to read' in Spanish?", options: { a: "Escribir", b: "Leer", c: "Hablar" }, correct: "b" },
-    { question: "What is the Spanish word for 'train station'?", options: { a: "Estación de tren", b: "Aeropuerto", c: "Mercado" }, correct: "a" },
-    { question: "How do you say 'cold' in Spanish?", options: { a: "Calor", b: "Frío", c: "Tibio" }, correct: "b" },
-    { question: "Which is the Spanish word for 'street market'?", options: { a: "Mercado", b: "Biblioteca", c: "Plaza" }, correct: "a" },
-    { question: "How do you say 'to write' in Spanish?", options: { a: "Leer", b: "Escribir", c: "Cantar" }, correct: "b" },
-    { question: "What is the Spanish word for 'neighbor'?", options: { a: "Amigo", b: "Vecino", c: "Hermano" }, correct: "b" },
-    { question: "Which word means 'to speak' in Spanish?", options: { a: "Oír", b: "Hablar", c: "Ver" }, correct: "b" }
-  ],
-  advanced: [
-    { question: "What does 'responsabilidad' mean?", options: { a: "Responsibility", b: "Possibility", c: "Experience" }, correct: "a" },
-    { question: "How do you say 'nevertheless' in Spanish?", options: { a: "Sin embargo", b: "Mientras tanto", c: "Entonces" }, correct: "a" },
-    { question: "What is the Spanish word for 'achievement'?", options: { a: "Logro", b: "Fracaso", c: "Error" }, correct: "a" },
-    { question: "What is the Spanish word for 'environment'?", options: { a: "Medio ambiente", b: "Sociedad", c: "Economía" }, correct: "a" },
-    { question: "What does 'decepción' mean?", options: { a: "Disappointment", b: "Encouragement", c: "Celebration" }, correct: "a" },
-    { question: "How do you say 'to depend on' in Spanish?", options: { a: "Depender de", b: "Empezar", c: "Terminar" }, correct: "a" },
-    { question: "Which word means 'opinion' in Spanish?", options: { a: "Opinión", b: "Pregunta", c: "Respuesta" }, correct: "a" },
-    { question: "How do you say 'complex' in Spanish?", options: { a: "Complejo", b: "Simple", c: "Claro" }, correct: "a" },
-    { question: "What is 'solution' in Spanish?", options: { a: "Solución", b: "Problema", c: "Pregunta" }, correct: "a" },
-    { question: "How do you say 'knowledge' in Spanish?", options: { a: "Conocimiento", b: "Sabiduría", c: "Razón" }, correct: "a" },
-    { question: "Which word means 'development' in Spanish?", options: { a: "Desarrollo", b: "Cambio", c: "Estancamiento" }, correct: "a" },
-    { question: "What does 'negociación' mean?", options: { a: "Negotiation", b: "Delay", c: "Agreement" }, correct: "a" },
-    { question: "How do you say 'to avoid' in Spanish?", options: { a: "Evitar", b: "Lograr", c: "Comenzar" }, correct: "a" },
-    { question: "What does 'juicio' mean?", options: { a: "Judgment", b: "Announcement", c: "Complaint" }, correct: "a" },
-    { question: "How do you say 'growth' in Spanish?", options: { a: "Crecimiento", b: "Disminución", c: "Pérdida" }, correct: "a" },
-    { question: "What is 'consideration' in Spanish?", options: { a: "Consideración", b: "Perdón", c: "Amabilidad" }, correct: "a" },
-    { question: "What does 'reto' mean?", options: { a: "Challenge", b: "Solution", c: "Result" }, correct: "a" },
-    { question: "How do you say 'to analyze' in Spanish?", options: { a: "Analizar", b: "Aceptar", c: "Comparar" }, correct: "a" },
-    { question: "Which word means 'success' in Spanish?", options: { a: "Éxito", b: "Fracaso", c: "Error" }, correct: "a" },
-    { question: "How do you say 'opportunity' in Spanish?", options: { a: "Oportunidad", b: "Problema", c: "Situación" }, correct: "a" }
-  ]
+    beginner: [
+        { question: "Fill in the blank: Hola, ¿___ estás?", options: ["qué", "cómo", "cuándo", "dónde"], answer: "cómo" },
+        { question: "What does 'rojo' mean?", options: ["red", "blue", "green", "yellow"], answer: "red" },
+        { question: "Choose the correct article for 'gato'.", options: ["el", "la", "los", "las"], answer: "el" },
+        { question: "Select the plural of 'amigo'.", options: ["amigos", "amigoes", "amigs", "amigoses"], answer: "amigos" },
+        { question: "What is 'thank you' in Spanish?", options: ["hola", "gracias", "adiós", "por favor"], answer: "gracias" },
+        { question: "Fill in the blank: Yo ___ de España.", options: ["soy", "eres", "es", "somos"], answer: "soy" },
+        { question: "What does 'libro' mean?", options: ["pen", "book", "table", "door"], answer: "book" },
+        { question: "Which is a color in Spanish?", options: ["azul", "gato", "pan", "casa"], answer: "azul" },
+        { question: "Choose the correct translation for 'goodbye'.", options: ["hola", "adiós", "gracias", "mañana"], answer: "adiós" },
+        { question: "Fill in the blank: Nosotros ___ estudiantes.", options: ["somos", "eres", "soy", "es"], answer: "somos" }
+    ],
+    intermediate: [
+        { question: "What is the past tense of 'comer' (yo)?", options: ["comí", "como", "comió", "comía"], answer: "comí" },
+        { question: "Fill in the blank: Ellos ___ a la playa ayer.", options: ["van", "fueron", "irán", "iban"], answer: "fueron" },
+        { question: "Choose the synonym of 'feliz'.", options: ["triste", "alegre", "enojado", "cansado"], answer: "alegre" },
+        { question: "Which is the correct translation of 'We are going to eat'?", options: ["Vamos a comer", "Vamos comer", "Vamos comiendo", "Comemos vamos"], answer: "Vamos a comer" },
+        { question: "What is the opposite of 'frío'?", options: ["calor", "cálido", "caliente", "templado"], answer: "caliente" },
+        { question: "Fill in the blank: ___ coche es muy rápido. (my)", options: ["Mi", "Mis", "Mio", "Mía"], answer: "Mi" },
+        { question: "Choose the correct form: Yo ___ estudiando.", options: ["estoy", "está", "estás", "estamos"], answer: "estoy" },
+        { question: "Which word means 'school'?", options: ["escuela", "biblioteca", "puerta", "playa"], answer: "escuela" },
+        { question: "What is the past participle of 'hacer'?", options: ["hecho", "hizo", "hacido", "hacido"], answer: "hecho" },
+        { question: "Fill in the blank: Ayer ___ mucha lluvia.", options: ["hubo", "hay", "habrá", "haber"], answer: "hubo" }
+    ],
+    advanced: [
+        { question: "Choose the correct subjunctive: Espero que tú ___ feliz.", options: ["seas", "eres", "serás", "fuiste"], answer: "seas" },
+        { question: "Which word means 'to improve'?", options: ["mejorar", "empeorar", "aprender", "correr"], answer: "mejorar" },
+        { question: "Fill in the blank: No creo que él ___ venir.", options: ["pueda", "puede", "podrá", "pudo"], answer: "pueda" },
+        { question: "What is the antonym of 'rápido'?", options: ["lento", "ligero", "veloz", "breve"], answer: "lento" },
+        { question: "Choose the correct translation: 'Had I known'.", options: ["Si hubiera sabido", "Si he sabido", "Si sabría", "Si sabía"], answer: "Si hubiera sabido" },
+        { question: "Which is the correct imperfect form (nosotros) of 'ser'?", options: ["éramos", "fuimos", "somos", "seremos"], answer: "éramos" },
+        { question: "Fill in the blank: Ojalá que ___ sol mañana.", options: ["haga", "hace", "hará", "hacer"], answer: "haga" },
+        { question: "Which word means 'scarce'?", options: ["escaso", "abundante", "pleno", "lleno"], answer: "escaso" },
+        { question: "Choose the correct past perfect: Nosotros ya ___ comido.", options: ["habíamos", "hemos", "habiamos", "habremos"], answer: "habíamos" },
+        { question: "Fill in the blank: Aunque ___ difícil, lo intentaré.", options: ["sea", "es", "será", "fue"], answer: "sea" }
+    ]
 };
 
 
@@ -439,5 +409,6 @@ showLevelMenu();
 </div>
 </body>
 </html>
+
 
 
