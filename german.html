@@ -207,42 +207,44 @@
   </div>
   <script>
 const quizData = {
-    beginner: [
-        { question: "Wie sagt man 'Hello' auf Deutsch?", options: ["Hallo", "Ciao", "Hola", "Salut"], answer: "Hallo" },
-        { question: "Fülle die Lücke: Ich ___ Maria.", options: ["bin", "bist", "seid", "sind"], answer: "bin" },
-        { question: "Welches ist ein deutsches Wort für 'Thank you'?", options: ["Bitte", "Danke", "Entschuldigung", "Guten"], answer: "Danke" },
-        { question: "Welche Farbe bedeutet 'Rot'?", options: ["Red", "Green", "Blue", "Yellow"], answer: "Red" },
-        { question: "Wähle das richtige Plural: der Hund – ___", options: ["die Hunde", "die Hunds", "die Hundes", "die Hund"], answer: "die Hunde" },
-        { question: "Fülle die Lücke: Er ___ müde.", options: ["ist", "bin", "bist", "seid"], answer: "ist" },
-        { question: "Was bedeutet 'Guten Morgen'?", options: ["Good morning", "Good night", "Good evening", "Hello"], answer: "Good morning" },
-        { question: "Wie sagt man 'Yes' auf Deutsch?", options: ["Nein", "Ja", "Oui", "Si"], answer: "Ja" },
-        { question: "Welcher Artikel gehört zu 'Tisch'?", options: ["der", "die", "das", "den"], answer: "der" },
-        { question: "Fülle die Lücke: Wir ___ Freunde.", options: ["sind", "seid", "bin", "ist"], answer: "sind" }
-    ],
-    intermediate: [
-        { question: "Welches Wort ist ein Verb?", options: ["laufen", "Haus", "schön", "rot"], answer: "laufen" },
-        { question: "Fülle die Lücke: Ich habe gestern einen Film ___.", options: ["sehen", "gesehen", "sieht", "sah"], answer: "gesehen" },
-        { question: "Wähle den richtigen Satz.", options: ["Ich gehe ins Kino.", "Ich gehen ins Kino.", "Ich geht ins Kino.", "Ich gehst ins Kino."], answer: "Ich gehe ins Kino." },
-        { question: "Was bedeutet 'Buchhandlung'?", options: ["Library", "Bookstore", "Bakery", "School"], answer: "Bookstore" },
-        { question: "Fülle die Lücke: Sie ___ sehr gut Deutsch.", options: ["sprechen", "spricht", "spreche", "sprach"], answer: "sprechen" },
-        { question: "Welches Wort ist ein Adjektiv?", options: ["schnell", "laufen", "Haus", "Auto"], answer: "schnell" },
-        { question: "Was ist das Gegenteil von 'kalt'?", options: ["heiß", "warm", "frostig", "kühl"], answer: "heiß" },
-        { question: "Welches ist die richtige Reihenfolge: Ich / gern / Kaffee / trinke", options: ["Ich trinke gern Kaffee", "Gern trinke ich Kaffee", "Ich gern trinke Kaffee", "Kaffee trinke ich gern"], answer: "Ich trinke gern Kaffee" },
-        { question: "Fülle die Lücke: Morgen ___ wir nach Berlin fahren.", options: ["werden", "wurden", "werdenes", "werdenen"], answer: "werden" },
-        { question: "Was bedeutet 'Freundschaft'?", options: ["Friendship", "Happiness", "Freedom", "Friend"], answer: "Friendship" }
-    ],
-    advanced: [
-        { question: "Welches ist ein Synonym für 'schwierig'?", options: ["einfach", "kompliziert", "leicht", "klar"], answer: "kompliziert" },
-        { question: "Fülle die Lücke: Hätte ich mehr Zeit, ___ ich reisen.", options: ["würde", "werde", "wäre", "bin"], answer: "würde" },
-        { question: "Was bedeutet 'Verantwortung'?", options: ["Responsibility", "Possibility", "Authority", "Priority"], answer: "Responsibility" },
-        { question: "Welches Wort ist ein Partizip Perfekt?", options: ["gegangen", "gehen", "geht", "ging"], answer: "gegangen" },
-        { question: "Fülle die Lücke: Er tat so, ___ er alles wüsste.", options: ["als ob", "weil", "dass", "wenn"], answer: "als ob" },
-        { question: "Was ist das Gegenteil von 'ruhig'?", options: ["laut", "still", "friedlich", "sanft"], answer: "laut" },
-        { question: "Welcher Satz ist korrekt im Konjunktiv II?", options: ["Ich hätte gern ein Eis.", "Ich habe gern ein Eis.", "Ich werde gern ein Eis.", "Ich bin gern ein Eis."], answer: "Ich hätte gern ein Eis." },
-        { question: "Fülle die Lücke: Wir warten, ___ der Regen aufhört.", options: ["bis", "wenn", "weil", "ob"], answer: "bis" },
-        { question: "Was bedeutet 'nachhaltig'?", options: ["Sustainable", "Natural", "Temporary", "Economic"], answer: "Sustainable" },
-        { question: "Welcher Ausdruck bedeutet 'once in a blue moon'?", options: ["alle Jubeljahre", "jeden Tag", "ab und zu", "immer"], answer: "alle Jubeljahre" }
-    ]
+  beginner: [
+    { question: "How do you say 'Good morning' in German?", options: { a: "Guten Morgen", b: "Gute Nacht", c: "Hallo" }, correct: "a" },
+    { question: "Fill in the blank: Ich ___ Maria. (I am Maria.)", options: { a: "bin", b: "bist", c: "seid" }, correct: "a" },
+    { question: "What does 'Danke' mean?", options: { a: "Thank you", b: "Hello", c: "Goodbye" }, correct: "a" },
+    { question: "Which article is correct for 'Apfel'?", options: { a: "der", b: "die", c: "das" }, correct: "a" },
+    { question: "Fill in the blank: Er ___ aus Berlin. (He comes from Berlin.)", options: { a: "kommt", b: "kommen", c: "komme" }, correct: "a" },
+    { question: "Translate: 'How are you?'", options: { a: "Wie geht es dir?", b: "Was machst du?", c: "Wer bist du?" }, correct: "a" },
+    { question: "What is the plural of 'Kind' (child)?", options: { a: "Kinder", b: "Kinden", c: "Kindern" }, correct: "a" },
+    { question: "What is 'water' in German?", options: { a: "Wasser", b: "Milch", c: "Saft" }, correct: "a" },
+    { question: "Fill in the blank: Wir ___ Freunde. (We are friends.)", options: { a: "sind", b: "seid", c: "bin" }, correct: "a" },
+    { question: "How do you say 'Good night' in German?", options: { a: "Gute Nacht", b: "Guten Abend", c: "Guten Morgen" }, correct: "a" }
+  ],
+
+  intermediate: [
+    { question: "What is the past tense of 'gehen' (to go) for 'ich'?", options: { a: "ging", b: "gehe", c: "gegangen" }, correct: "a" },
+    { question: "Translate: 'I am learning German.'", options: { a: "Ich lerne Deutsch.", b: "Ich Deutsch lernen.", c: "Ich gelernt Deutsch." }, correct: "a" },
+    { question: "Fill in the blank: Wir haben gestern einen Film ___.", options: { a: "gesehen", b: "sehen", c: "sieht" }, correct: "a" },
+    { question: "What is 'library' in German?", options: { a: "Bibliothek", b: "Buchladen", c: "Büro" }, correct: "a" },
+    { question: "Choose the correct sentence:", options: { a: "Der Hund spielt im Garten.", b: "Der Hund spielen im Garten.", c: "Der Hund spielt in Garten." }, correct: "a" },
+    { question: "What is the opposite of 'heiß' (hot)?", options: { a: "kalt", b: "warm", c: "trocken" }, correct: "a" },
+    { question: "Fill in the blank: Er hat gestern ___ gegessen. (He ate bread yesterday.)", options: { a: "Brot", b: "der Brot", c: "Brote" }, correct: "a" },
+    { question: "What does 'Freundschaft' mean?", options: { a: "Friendship", b: "Freedom", c: "Happiness" }, correct: "a" },
+    { question: "Translate: 'They are reading a book.'", options: { a: "Sie lesen ein Buch.", b: "Sie liest ein Buch.", c: "Sie lesen einen Buch." }, correct: "a" },
+    { question: "Which is correct for 'the children'?", options: { a: "die Kinder", b: "der Kinder", c: "das Kinder" }, correct: "a" }
+  ],
+
+  advanced: [
+    { question: "Which case is used after 'mit'?", options: { a: "Dative", b: "Accusative", c: "Genitive" }, correct: "a" },
+    { question: "Fill in the blank: Wenn ich Zeit hätte, ___ ich nach Berlin fahren.", options: { a: "würde", b: "werde", c: "bin" }, correct: "a" },
+    { question: "Translate: 'Despite the rain, we went for a walk.'", options: { a: "Trotz des Regens gingen wir spazieren.", b: "Weil es regnete, gingen wir spazieren.", c: "Während des Regens gingen wir spazieren." }, correct: "a" },
+    { question: "Which is the correct passive form of 'Der Lehrer erklärt die Regel'?", options: { a: "Die Regel wird vom Lehrer erklärt.", b: "Die Regel wird vom Lehrer erklären.", c: "Die Regel vom Lehrer wird erklärt." }, correct: "a" },
+    { question: "Choose the correct subjunctive: 'Ich wünschte, er ___ hier.'", options: { a: "wäre", b: "war", c: "ist" }, correct: "a" },
+    { question: "What does 'je... desto...' mean?", options: { a: "the... the...", b: "if... then...", c: "either... or..." }, correct: "a" },
+    { question: "Fill in: Er tat so, als ___ er krank.", options: { a: "wäre", b: "war", c: "ist" }, correct: "a" },
+    { question: "Which preposition means 'because of'?", options: { a: "wegen", b: "für", c: "nach" }, correct: "a" },
+    { question: "Translate: 'He would have come if he had known.'", options: { a: "Er wäre gekommen, wenn er gewusst hätte.", b: "Er kommt, wenn er gewusst hätte.", c: "Er kam, wenn er gewusst hätte." }, correct: "a" },
+    { question: "What is the plural of 'das Buch'?", options: { a: "die Bücher", b: "die Buchs", c: "die Buche" }, correct: "a" }
+  ]
 };
 
 
@@ -417,6 +419,7 @@ showLevelMenu();
 </div>
 </body>
 </html>
+
 
 
 
