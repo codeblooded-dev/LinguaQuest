@@ -207,73 +207,44 @@
   </div>
   <script>
 const quizData = {
-  beginner: [
-    { question: "What is the German word for 'house'?", options: { a: "Haus", b: "Hund", c: "Auto" }, correct: "a" },
-    { question: "How do you say 'thank you' in German?", options: { a: "Hallo", b: "Bitte", c: "Danke" }, correct: "c" },
-    { question: "Which German word means 'book'?", options: { a: "Stuhl", b: "Buch", c: "Tisch" }, correct: "b" },
-    { question: "What is the German word for 'apple'?", options: { a: "Apfel", b: "Brot", c: "Wasser" }, correct: "a" },
-    { question: "How do you say 'goodbye' in German?", options: { a: "Tschüss", b: "Ja", c: "Bitte" }, correct: "a" },
-    { question: "How do you say 'cat' in German?", options: { a: "Hund", b: "Katze", c: "Vogel" }, correct: "b" },
-    { question: "What is the German word for 'water'?", options: { a: "Milch", b: "Saft", c: "Wasser" }, correct: "c" },
-    { question: "How do you say 'car' in German?", options: { a: "Auto", b: "Zug", c: "Fahrrad" }, correct: "a" },
-    { question: "How do you say 'yes' in German?", options: { a: "Nein", b: "Ja", c: "Bitte" }, correct: "b" },
-    { question: "What is the German word for 'bread'?", options: { a: "Milch", b: "Brot", c: "Käse" }, correct: "b" },
-    { question: "How do you say 'dog' in German?", options: { a: "Hund", b: "Katze", c: "Vogel" }, correct: "a" },
-    { question: "What is the German word for 'mother'?", options: { a: "Mutter", b: "Vater", c: "Schwester" }, correct: "a" },
-    { question: "How do you say 'please' in German?", options: { a: "Danke", b: "Bitte", c: "Hallo" }, correct: "b" },
-    { question: "What is the German word for 'sun'?", options: { a: "Mond", b: "Sonne", c: "Stern" }, correct: "b" },
-    { question: "How do you say 'milk' in German?", options: { a: "Saft", b: "Wasser", c: "Milch" }, correct: "c" },
-    { question: "What is the German word for 'morning'?", options: { a: "Nachmittag", b: "Abend", c: "Morgen" }, correct: "c" },
-    { question: "What is the German word for 'school'?", options: { a: "Schule", b: "Haus", c: "Buch" }, correct: "a" },
-    { question: "What is the German word for 'chair'?", options: { a: "Tisch", b: "Stuhl", c: "Lampe" }, correct: "b" },
-    { question: "How do you say 'city' in German?", options: { a: "Dorf", b: "Stadt", c: "Land" }, correct: "b" },
-    { question: "What is the German for 'thank you very much'?", options: { a: "Bitte sehr", b: "Vielen Dank", c: "Auf Wiedersehen" }, correct: "b" }
-  ],
-  intermediate: [
-    { question: "What is the German word for 'window'?", options: { a: "Tür", b: "Fenster", c: "Lampe" }, correct: "b" },
-    { question: "How do you say 'school' in German?", options: { a: "Schule", b: "Zeugnis", c: "Stadt" }, correct: "a" },
-    { question: "Which German word means 'breakfast'?", options: { a: "Frühstück", b: "Abendessen", c: "Mittagessen" }, correct: "a" },
-    { question: "What is the German word for 'bicycle'?", options: { a: "Flugzeug", b: "Fahrrad", c: "Auto" }, correct: "b" },
-    { question: "How do you say 'beautiful' in German?", options: { a: "Klein", b: "Schön", c: "Langsam" }, correct: "b" },
-    { question: "What is 'hospital' in German?", options: { a: "Krankenhaus", b: "Bahnhof", c: "Fischmarkt" }, correct: "a" },
-    { question: "Which is the German word for 'library'?", options: { a: "Bibliothek", b: "Klassenzimmer", c: "Küche" }, correct: "a" },
-    { question: "What is the German word for 'teacher'?", options: { a: "Lehrer", b: "Schüler", c: "Arzt" }, correct: "a" },
-    { question: "How do you say 'to read' in German?", options: { a: "lesen", b: "schreiben", c: "sprechen" }, correct: "a" },
-    { question: "Which word means 'garden' in German?", options: { a: "Garten", b: "Park", c: "Wald" }, correct: "a" },
-    { question: "What is 'train station' in German?", options: { a: "Flughafen", b: "Bahnhof", c: "Markt" }, correct: "b" },
-    { question: "How do you say 'cold' in German?", options: { a: "Warm", b: "Heiß", c: "Kalt" }, correct: "c" },
-    { question: "Which is the German word for 'coffee'?", options: { a: "Tee", b: "Kaffee", c: "Wasser" }, correct: "b" },
-    { question: "What is the German word for 'money'?", options: { a: "Geld", b: "Preis", c: "Kauf" }, correct: "a" },
-    { question: "How do you say 'to write' in German?", options: { a: "schreiben", b: "lesen", c: "singen" }, correct: "a" },
-    { question: "What is 'street' in German?", options: { a: "Straße", b: "Platz", c: "Weg" }, correct: "a" },
-    { question: "Which word means 'friend' in German?", options: { a: "Freund", b: "Feind", c: "Nachbar" }, correct: "a" },
-    { question: "How do you say 'family' in German?", options: { a: "Familie", b: "Freunde", c: "Leute" }, correct: "a" },
-    { question: "What is the German word for 'city center'?", options: { a: "Vorort", b: "Stadtzentrum", c: "Dorf" }, correct: "b" },
-    { question: "How do you say 'to speak' in German?", options: { a: "hören", b: "sprechen", c: "sehen" }, correct: "b" }
-  ],
-  advanced: [
-    { question: "What does 'Verantwortung' mean?", options: { a: "Responsibility", b: "Opportunity", c: "Experience" }, correct: "a" },
-    { question: "How do you say 'nevertheless' in German?", options: { a: "dennoch", b: "gleichzeitig", c: "sodass" }, correct: "a" },
-    { question: "What is the German word for 'achievement'?", options: { a: "Leistung", b: "Misserfolg", c: "Fehler" }, correct: "a" },
-    { question: "What is the German word for 'environment'?", options: { a: "Umwelt", b: "Gesellschaft", c: "Wirtschaft" }, correct: "a" },
-    { question: "What does 'die Enttäuschung' mean?", options: { a: "Disappointment", b: "Encouragement", c: "Entertainment" }, correct: "a" },
-    { question: "How do you say 'to depend on' in German?", options: { a: "abhängen von", b: "aufhören", c: "anfangen" }, correct: "a" },
-    { question: "Which word means 'opinion' in German?", options: { a: "Meinung", b: "Frage", c: "Antwort" }, correct: "a" },
-    { question: "How do you say 'complex' in German?", options: { a: "komplex", b: "einfach", c: "klar" }, correct: "a" },
-    { question: "What is 'solution' in German?", options: { a: "Lösung", b: "Problem", c: "Frage" }, correct: "a" },
-    { question: "How do you say 'knowledge' in German?", options: { a: "Wissen", b: "Weisheit", c: "Verstand" }, correct: "a" },
-    { question: "Which word means 'development' in German?", options: { a: "Entwicklung", b: "Veränderung", c: "Stagnation" }, correct: "a" },
-    { question: "What does 'die Verhandlung' mean?", options: { a: "Negotiation", b: "Delay", c: "Agreement" }, correct: "a" },
-    { question: "How do you say 'to avoid' in German?", options: { a: "vermeiden", b: "erreichen", c: "beginnen" }, correct: "a" },
-    { question: "What does 'das Urteil' mean?", options: { a: "Judgment", b: "Announcement", c: "Complaint" }, correct: "a" },
-    { question: "How do you say 'growth' in German?", options: { a: "Wachstum", b: "Abnahme", c: "Rückgang" }, correct: "a" },
-    { question: "What is 'consideration' in German?", options: { a: "Rücksicht", b: "Nachsicht", c: "Freundlichkeit" }, correct: "a" },
-    { question: "What does 'die Herausforderung' mean?", options: { a: "Challenge", b: "Solution", c: "Result" }, correct: "a" },
-    { question: "How do you say 'to analyze' in German?", options: { a: "analysieren", b: "übernehmen", c: "vergleichen" }, correct: "a" },
-    { question: "Which word means 'achievement' in German?", options: { a: "Leistung", b: "Fehler", c: "Misserfolg" }, correct: "a" },
-    { question: "How do you say 'growth' in German?", options: { a: "Wachstum", b: "Schrumpfung", c: "Abnahme" }, correct: "a" }
-  ]
+    beginner: [
+        { question: "Wie sagt man 'Hello' auf Deutsch?", options: ["Hallo", "Ciao", "Hola", "Salut"], answer: "Hallo" },
+        { question: "Fülle die Lücke: Ich ___ Maria.", options: ["bin", "bist", "seid", "sind"], answer: "bin" },
+        { question: "Welches ist ein deutsches Wort für 'Thank you'?", options: ["Bitte", "Danke", "Entschuldigung", "Guten"], answer: "Danke" },
+        { question: "Welche Farbe bedeutet 'Rot'?", options: ["Red", "Green", "Blue", "Yellow"], answer: "Red" },
+        { question: "Wähle das richtige Plural: der Hund – ___", options: ["die Hunde", "die Hunds", "die Hundes", "die Hund"], answer: "die Hunde" },
+        { question: "Fülle die Lücke: Er ___ müde.", options: ["ist", "bin", "bist", "seid"], answer: "ist" },
+        { question: "Was bedeutet 'Guten Morgen'?", options: ["Good morning", "Good night", "Good evening", "Hello"], answer: "Good morning" },
+        { question: "Wie sagt man 'Yes' auf Deutsch?", options: ["Nein", "Ja", "Oui", "Si"], answer: "Ja" },
+        { question: "Welcher Artikel gehört zu 'Tisch'?", options: ["der", "die", "das", "den"], answer: "der" },
+        { question: "Fülle die Lücke: Wir ___ Freunde.", options: ["sind", "seid", "bin", "ist"], answer: "sind" }
+    ],
+    intermediate: [
+        { question: "Welches Wort ist ein Verb?", options: ["laufen", "Haus", "schön", "rot"], answer: "laufen" },
+        { question: "Fülle die Lücke: Ich habe gestern einen Film ___.", options: ["sehen", "gesehen", "sieht", "sah"], answer: "gesehen" },
+        { question: "Wähle den richtigen Satz.", options: ["Ich gehe ins Kino.", "Ich gehen ins Kino.", "Ich geht ins Kino.", "Ich gehst ins Kino."], answer: "Ich gehe ins Kino." },
+        { question: "Was bedeutet 'Buchhandlung'?", options: ["Library", "Bookstore", "Bakery", "School"], answer: "Bookstore" },
+        { question: "Fülle die Lücke: Sie ___ sehr gut Deutsch.", options: ["sprechen", "spricht", "spreche", "sprach"], answer: "sprechen" },
+        { question: "Welches Wort ist ein Adjektiv?", options: ["schnell", "laufen", "Haus", "Auto"], answer: "schnell" },
+        { question: "Was ist das Gegenteil von 'kalt'?", options: ["heiß", "warm", "frostig", "kühl"], answer: "heiß" },
+        { question: "Welches ist die richtige Reihenfolge: Ich / gern / Kaffee / trinke", options: ["Ich trinke gern Kaffee", "Gern trinke ich Kaffee", "Ich gern trinke Kaffee", "Kaffee trinke ich gern"], answer: "Ich trinke gern Kaffee" },
+        { question: "Fülle die Lücke: Morgen ___ wir nach Berlin fahren.", options: ["werden", "wurden", "werdenes", "werdenen"], answer: "werden" },
+        { question: "Was bedeutet 'Freundschaft'?", options: ["Friendship", "Happiness", "Freedom", "Friend"], answer: "Friendship" }
+    ],
+    advanced: [
+        { question: "Welches ist ein Synonym für 'schwierig'?", options: ["einfach", "kompliziert", "leicht", "klar"], answer: "kompliziert" },
+        { question: "Fülle die Lücke: Hätte ich mehr Zeit, ___ ich reisen.", options: ["würde", "werde", "wäre", "bin"], answer: "würde" },
+        { question: "Was bedeutet 'Verantwortung'?", options: ["Responsibility", "Possibility", "Authority", "Priority"], answer: "Responsibility" },
+        { question: "Welches Wort ist ein Partizip Perfekt?", options: ["gegangen", "gehen", "geht", "ging"], answer: "gegangen" },
+        { question: "Fülle die Lücke: Er tat so, ___ er alles wüsste.", options: ["als ob", "weil", "dass", "wenn"], answer: "als ob" },
+        { question: "Was ist das Gegenteil von 'ruhig'?", options: ["laut", "still", "friedlich", "sanft"], answer: "laut" },
+        { question: "Welcher Satz ist korrekt im Konjunktiv II?", options: ["Ich hätte gern ein Eis.", "Ich habe gern ein Eis.", "Ich werde gern ein Eis.", "Ich bin gern ein Eis."], answer: "Ich hätte gern ein Eis." },
+        { question: "Fülle die Lücke: Wir warten, ___ der Regen aufhört.", options: ["bis", "wenn", "weil", "ob"], answer: "bis" },
+        { question: "Was bedeutet 'nachhaltig'?", options: ["Sustainable", "Natural", "Temporary", "Economic"], answer: "Sustainable" },
+        { question: "Welcher Ausdruck bedeutet 'once in a blue moon'?", options: ["alle Jubeljahre", "jeden Tag", "ab und zu", "immer"], answer: "alle Jubeljahre" }
+    ]
 };
+
 
 let currLevel = null, curr = 0, XP = 0, hearts = 3, timer = null, timeLeft = 10, answered = false;
 
@@ -446,5 +417,6 @@ showLevelMenu();
 </div>
 </body>
 </html>
+
 
 
