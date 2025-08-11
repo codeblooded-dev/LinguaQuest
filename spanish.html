@@ -199,45 +199,45 @@
   </div>
   <script>
 const quizData = {
-    beginner: [
-        { question: "Fill in the blank: Hola, ¿___ estás?", options: ["qué", "cómo", "cuándo", "dónde"], answer: "cómo" },
-        { question: "What does 'rojo' mean?", options: ["red", "blue", "green", "yellow"], answer: "red" },
-        { question: "Choose the correct article for 'gato'.", options: ["el", "la", "los", "las"], answer: "el" },
-        { question: "Select the plural of 'amigo'.", options: ["amigos", "amigoes", "amigs", "amigoses"], answer: "amigos" },
-        { question: "What is 'thank you' in Spanish?", options: ["hola", "gracias", "adiós", "por favor"], answer: "gracias" },
-        { question: "Fill in the blank: Yo ___ de España.", options: ["soy", "eres", "es", "somos"], answer: "soy" },
-        { question: "What does 'libro' mean?", options: ["pen", "book", "table", "door"], answer: "book" },
-        { question: "Which is a color in Spanish?", options: ["azul", "gato", "pan", "casa"], answer: "azul" },
-        { question: "Choose the correct translation for 'goodbye'.", options: ["hola", "adiós", "gracias", "mañana"], answer: "adiós" },
-        { question: "Fill in the blank: Nosotros ___ estudiantes.", options: ["somos", "eres", "soy", "es"], answer: "somos" }
-    ],
-    intermediate: [
-        { question: "What is the past tense of 'comer' (yo)?", options: ["comí", "como", "comió", "comía"], answer: "comí" },
-        { question: "Fill in the blank: Ellos ___ a la playa ayer.", options: ["van", "fueron", "irán", "iban"], answer: "fueron" },
-        { question: "Choose the synonym of 'feliz'.", options: ["triste", "alegre", "enojado", "cansado"], answer: "alegre" },
-        { question: "Which is the correct translation of 'We are going to eat'?", options: ["Vamos a comer", "Vamos comer", "Vamos comiendo", "Comemos vamos"], answer: "Vamos a comer" },
-        { question: "What is the opposite of 'frío'?", options: ["calor", "cálido", "caliente", "templado"], answer: "caliente" },
-        { question: "Fill in the blank: ___ coche es muy rápido. (my)", options: ["Mi", "Mis", "Mio", "Mía"], answer: "Mi" },
-        { question: "Choose the correct form: Yo ___ estudiando.", options: ["estoy", "está", "estás", "estamos"], answer: "estoy" },
-        { question: "Which word means 'school'?", options: ["escuela", "biblioteca", "puerta", "playa"], answer: "escuela" },
-        { question: "What is the past participle of 'hacer'?", options: ["hecho", "hizo", "hacido", "hacido"], answer: "hecho" },
-        { question: "Fill in the blank: Ayer ___ mucha lluvia.", options: ["hubo", "hay", "habrá", "haber"], answer: "hubo" }
-    ],
-    advanced: [
-        { question: "Choose the correct subjunctive: Espero que tú ___ feliz.", options: ["seas", "eres", "serás", "fuiste"], answer: "seas" },
-        { question: "Which word means 'to improve'?", options: ["mejorar", "empeorar", "aprender", "correr"], answer: "mejorar" },
-        { question: "Fill in the blank: No creo que él ___ venir.", options: ["pueda", "puede", "podrá", "pudo"], answer: "pueda" },
-        { question: "What is the antonym of 'rápido'?", options: ["lento", "ligero", "veloz", "breve"], answer: "lento" },
-        { question: "Choose the correct translation: 'Had I known'.", options: ["Si hubiera sabido", "Si he sabido", "Si sabría", "Si sabía"], answer: "Si hubiera sabido" },
-        { question: "Which is the correct imperfect form (nosotros) of 'ser'?", options: ["éramos", "fuimos", "somos", "seremos"], answer: "éramos" },
-        { question: "Fill in the blank: Ojalá que ___ sol mañana.", options: ["haga", "hace", "hará", "hacer"], answer: "haga" },
-        { question: "Which word means 'scarce'?", options: ["escaso", "abundante", "pleno", "lleno"], answer: "escaso" },
-        { question: "Choose the correct past perfect: Nosotros ya ___ comido.", options: ["habíamos", "hemos", "habiamos", "habremos"], answer: "habíamos" },
-        { question: "Fill in the blank: Aunque ___ difícil, lo intentaré.", options: ["sea", "es", "será", "fue"], answer: "sea" }
-    ]
+  beginner: [
+    { question: "Choose the correct translation: 'I eat pizza'.", options: { a: "Yo como pizza", b: "Yo bebo pizza", c: "Yo corro pizza" }, correct: "a" },
+    { question: "Fill in the blank: '___ casa' (the house).", options: { a: "La", b: "El", c: "Los" }, correct: "a" },
+    { question: "What is the plural of 'libro'?", options: { a: "Libros", b: "Libras", c: "Libres" }, correct: "a" },
+    { question: "How do you say 'Good morning' in Spanish?", options: { a: "Buenos días", b: "Buenas noches", c: "Hola" }, correct: "a" },
+    { question: "Which word is a color?", options: { a: "Rojo", b: "Pan", c: "Silla" }, correct: "a" },
+    { question: "Translate: 'She is my sister'.", options: { a: "Ella es mi hermana", b: "Ella es mi hermano", c: "Ella es mi madre" }, correct: "a" },
+    { question: "What is the Spanish word for 'water'?", options: { a: "Agua", b: "Leche", c: "Vino" }, correct: "a" },
+    { question: "Fill in the blank: Yo ___ un libro. (I read a book)", options: { a: "leo", b: "lees", c: "leemos" }, correct: "a" },
+    { question: "Which article goes with 'gato'?", options: { a: "El", b: "La", c: "Los" }, correct: "a" },
+    { question: "How do you say 'thank you'?", options: { a: "Gracias", b: "Por favor", c: "Perdón" }, correct: "a" }
+  ],
+
+  intermediate: [
+    { question: "Translate: 'They are drinking coffee'.", options: { a: "Ellos beben café", b: "Ellos están bebiendo café", c: "Ellos bebieron café" }, correct: "b" },
+    { question: "What is the past tense of 'comer' for 'yo'?", options: { a: "Comí", b: "Como", c: "Comía" }, correct: "a" },
+    { question: "Choose the correct translation: 'We go to school every day'.", options: { a: "Nosotros vamos a la escuela todos los días", b: "Nosotros vamos la escuela todos los días", c: "Nosotros vamos en la escuela todos los días" }, correct: "a" },
+    { question: "Which pronoun replaces 'María y yo'?", options: { a: "Nosotros", b: "Ellos", c: "Ustedes" }, correct: "a" },
+    { question: "What is the feminine plural of 'bonito'?", options: { a: "Bonitas", b: "Bonitos", c: "Bonitum" }, correct: "a" },
+    { question: "Translate: 'I have two brothers'.", options: { a: "Tengo dos hermanos", b: "Tengo dos hermano", c: "Tengo dos hermanas" }, correct: "a" },
+    { question: "How do you ask 'Do you like pizza?' (informal)?", options: { a: "¿Te gusta la pizza?", b: "¿Te gustas la pizza?", c: "¿Te gustan la pizza?" }, correct: "a" },
+    { question: "Choose the correct verb form: 'Ustedes ___ a casa?' (Are you going home?)", options: { a: "van", b: "vamos", c: "va" }, correct: "a" },
+    { question: "Fill in the blank: Hace ___ que estudio español. (I have been studying Spanish for two years)", options: { a: "dos años", b: "dos año", c: "dos" }, correct: "a" },
+    { question: "What is the past participle of 'hacer'?", options: { a: "Hecho", b: "Hizo", c: "Hacido" }, correct: "a" }
+  ],
+
+  advanced: [
+    { question: "Choose the correct subjunctive: 'Espero que tú ___ feliz'.", options: { a: "seas", b: "eres", c: "serás" }, correct: "a" },
+    { question: "Translate: 'If I had money, I would travel'.", options: { a: "Si tuviera dinero, viajaría", b: "Si tendría dinero, viajaría", c: "Si tuve dinero, viajaré" }, correct: "a" },
+    { question: "Choose the correct translation: 'Despite the rain, we went out'.", options: { a: "A pesar de la lluvia, salimos", b: "Debido a la lluvia, salimos", c: "Por la lluvia, salimos" }, correct: "a" },
+    { question: "Fill in the blank: Ojalá que ___ buen tiempo mañana.", options: { a: "haya", b: "hay", c: "habrá" }, correct: "a" },
+    { question: "Which tense is 'Había terminado cuando llegaste'?", options: { a: "Pretérito pluscuamperfecto", b: "Pretérito perfecto simple", c: "Imperfecto" }, correct: "a" },
+    { question: "Choose the idiom meaning 'it's raining heavily'.", options: { a: "Llueve a cántaros", b: "Llueve poco", c: "Llueve suave" }, correct: "a" },
+    { question: "Fill in: Si ___ sabido, no habría venido.", options: { a: "hubiera", b: "habría", c: "hubo" }, correct: "a" },
+    { question: "Which preposition indicates the agent: 'El libro fue escrito ___ Gabriel García Márquez'?", options: { a: "por", b: "para", c: "con" }, correct: "a" },
+    { question: "Choose the correct present subjunctive: 'Es posible que ella ___ mañana'.", options: { a: "venga", b: "viene", c: "vendrá" }, correct: "a" },
+    { question: "Translate: 'I would have eaten if I had been hungry'.", options: { a: "Habría comido si hubiera tenido hambre", b: "Comería si tuviera hambre", c: "Había comido si tenía hambre" }, correct: "a" }
+  ]
 };
-
-
 let currLevel = null, curr = 0, XP = 0, hearts = 3, timer = null, timeLeft = 10, answered = false;
 
 function showLevelMenu() {
@@ -409,6 +409,7 @@ showLevelMenu();
 </div>
 </body>
 </html>
+
 
 
 
