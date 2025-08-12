@@ -12,7 +12,6 @@
             box-sizing: border-box;
         }
 
-
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -456,7 +455,24 @@
                     </div>
                 </div>
             </div>
+        
+         <div class="section">
+            <div class="section-header" onclick="toggleSection('resources')">
+            <h2>📖 Additional Resources</h2>
+            <span class="toggle-icon" id="resources-icon">▼</span>
         </div>
+        <div class="section-content" id="resources-content">
+            <p>Explore more about the Italian language and culture:</p>
+            <ul>
+               
+                <li><a href="italian-study.pdf" target="_blank">Learn Italian Pdf</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+        </div>
+
     </div>
 
 <script>
@@ -485,5 +501,4 @@
     document.addEventListener('DOMContentLoaded', () => toggleSection('greetings'));
 </script>
 </body>
-
 </html>
