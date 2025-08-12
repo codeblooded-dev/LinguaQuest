@@ -11,6 +11,11 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+
+
+       
+
         .header {
             text-align: center;
             margin-bottom: 40px;
@@ -455,6 +460,24 @@
         </div>
     </div>
 </div>
+    <div class="section">
+            <div class="section-header" onclick="toggleSection('resources')">
+            <h2>📖 Additional Resources</h2>
+            <span class="toggle-icon" id="resources-icon">▼</span>
+        </div>
+        <div class="section-content" id="resources-content">
+            <p>Explore more about the Russian language and culture:</p>
+            <ul>
+               
+                <li><a href="basic_russian.pdf" target="_blank">Learn Russian Pdf</a></li>
+            </ul>
+        </div>
+
+
+    </div>
+        </div>
+</div>
+
 
 <script>
 function toggleSection(sectionId) {
@@ -483,5 +506,4 @@ document.addEventListener('DOMContentLoaded', () => toggleSection('greetings'));
 </script>
 </body>
 </html>
-
         
